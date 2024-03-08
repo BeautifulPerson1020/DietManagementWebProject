@@ -5,73 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Page</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background: #FFFFFF;
-        }
-
-        .register-box {
-            width: 400px;
-            padding: 20px;
-            background: #FFFFFF;
-            box-shadow: 0px 4px 18.1px 2px rgba(0, 0, 0, 0.25);
-        }
-
-        .register-box h2 {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .register-box label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .register-box .input-container {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .register-box .input-container label {
-            width: 150px;
-            font-weight: bold;
-        }
-
-        .register-box input {
-            width: calc(100% - 150px);
-            padding: 10px;
-            box-sizing: border-box;
-            margin-left: 10px;
-        }
-
-        .register-box input[type="submit"] {
-            background: #4CAF50;
-            color: #fff;
-            border: none;
-            padding: 8px 15px;
-            cursor: pointer;
-            width: 100%;
-            display: block;
-            margin-top: 15px;
-            border-radius: 5px;
-        }
-
-        .verify-button {
-            background: #2196F3;
-            color: #fff;
-            border: none;
-            padding: 8px 15px;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-left: 10px;
-        }
     </style>
+    <link rel="stylesheet" href="../css/loginstyle.css">
 </head>
 <body>
 <div class="register-box">
@@ -93,17 +28,18 @@
         </div>
 
         <div class="input-container">
-            <label for="email">Email (Optional):</label>
+            <label for="email">Email (Optional) : </label>
             <input type="email" id="email" name="email">
         </div>
 
         <div class="input-container">
-            <label for="phoneNumber">Telephone Number:</label>
-            <button type="button" class="verify-button">Verify</button>
+            <label>Telephone Number:</label>
+            <button type="button" class="verify-button" onclick="openPopup()">Verify</button>
         </div>
 
         <input type="submit" value="Submit">
     </form>
+    <script defer src="../js/register.js"></script>
 </div>
 </body>
 </html>
