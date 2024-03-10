@@ -1,0 +1,11 @@
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: lightblue;
+}
+
+h2.temp {
+    font-size: 1.5rem; /* 또는 화면에 맞는 다른 크기 */
+}

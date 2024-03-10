@@ -1,0 +1,68 @@
+/*일단 주석 처리함.*/
+/*#gpt {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    align-items: center;*/
+/*    width: 100%;*/
+/*    font-size: 1.5em;*/
+/*}*/
+/*#gpt h2 {*/
+/*    font-size: 2em;*/
+/*    font-weight: bold;*/
+/*    margin-top: 20px;*/
+/*}*/
+
+/*.goal-box {*/
+/*    border: 2px solid black;*/
+/*    padding: 20px;*/
+/*    margin-top: 20px;*/
+/*    font-weight: bold;*/
+/*    width: calc(100% - 40px); !* 전체 너비에서 padding 제외 *!*/
+/*    overflow-y: auto; !* 필요한 경우 스크롤 표시 *!*/
+/*    box-sizing: border-box; !* padding 포함하여 너비 계산 *!*/
+/*}*/
+
+/*.goal-box p {*/
+/*    margin: 0;*/
+/*}*/
+
+/*#current-goal p {*/
+/*    text-align: center;*/
+/*    font-size: 1.1em;*/
+/*}*/
+/*.past-goals-container {*/
+/*    display: flex;*/
+/*    flex-wrap: wrap;*/
+/*    justify-content: space-around;*/
+/*}*/
+
+/*.past-goal-box {*/
+/*    width: calc(100% - 40px);*/
+/*    padding: 20px;*/
+/*    margin: 10px 0;*/
+/*    border: 2px solid black;*/
+/*    cursor: pointer;*/
+/*    transition: background-color 0.3s ease;*/
+/*    font-weight: bold;*/
+/*    box-sizing: border-box; !* padding 포함하여 너비 계산 *!*/
+/*}*/
+
+/*.past-goal-box:hover {*/
+/*    background-color: #e0e0e0;*/
+/*}*/
+
+/*@media screen and (max-width: 600px) {*/
+/*    .menu-item {*/
+/*        display: flex;*/
+/*        font-size: 5vw; !* 모바일에서 폰트 크기 조정 *!*/
+/*    }*/
+/*    .goal-box {*/
+/*        display: flex;*/
+/*        padding: 10px; !* 모바일에서 padding 조정 *!*/
+/*        width: calc(100% - 20px); !* 모바일에서 전체 너비에서 padding 제외 *!*/
+/*    }*/
+/*    .past-goal-box {*/
+/*        display: flex;*/
+/*        width: calc(100% - 20px); !* 모바일에서 전체 너비에서 padding 제외 *!*/
+/*    }*/
+/*}*/
