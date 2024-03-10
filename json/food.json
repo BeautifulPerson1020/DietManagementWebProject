@@ -1,0 +1,27 @@
+[
+  {
+    "food_name" : "라면",
+    "food_calories" : "82",
+    "food_sugars" : "0"
+  },
+  {
+    "food_name" : "떡볶이",
+    "food_calories" : "144",
+    "food_sugars" : "4.4"
+  },
+  {
+    "food_name" : "제육볶음",
+    "food_calories" : "195",
+    "food_sugars" : "0.38"
+  },
+  {
+    "food_name" : "소불고기",
+    "food_calories" : "170",
+    "food_sugars" : "3.24"
+  },
+  {
+    "food_name" : "황금올리브치킨",
+    "food_calories" : "244",
+    "food_sugars" : "0.96"
+  }
+]

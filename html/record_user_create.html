@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+          rel="stylesheet">
+    <script crossorigin="anonymous"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../css/toolbar_style.css">
+</head>
+<body>
+<script defer src="../js/toolbar_script.js"></script>
+<div class="menu mb-5" id="menu">
+    <div class="logo" onclick="redirectToMain()">
+        <div class="playball-regular">Diet &nbsp;HARD</div>
+    </div>
+    <div class="menu-item">마이페이지</div>
+    <div class="menu-item">목표 설정</div>
+    <div class="menu-item">기록 추가</div>
+    <div class="menu-item">종합 및 피드백</div>
+    <div class="menu-item" onclick="logout()">로그아웃</div>
+</div>
+
+<div class="col-xl-9">
+    <form class="row g-3 mb-6">
+        <div class="col-sm-6 col-md-8">
+            <div class="form-floating"><input class="form-control" id="floatingInputGrid" type="text" placeholder="Project title"><label for="floatingInputGrid">Project title</label></div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <div class="form-floating"><select class="form-select" id="floatingSelectTask">
+                <option selected="selected">Select task view</option>
+                <option value="1">technical</option>
+                <option value="2">external</option>
+                <option value="3">organizational</option>
+            </select><label for="floatingSelectTask">Defult task view</label></div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <div class="form-floating"><select class="form-select" id="floatingSelectPrivacy">
+                <option selected="selected">Select privacy</option>
+                <option value="1">Data Privacy One</option>
+                <option value="2">Data Privacy Two</option>
+                <option value="3">Data Privacy Three</option>
+            </select><label for="floatingSelectPrivacy">Project privacy</label></div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <div class="form-floating"><select class="form-select" id="floatingSelectTeam">
+                <option selected="selected">Select team</option>
+                <option value="1">Team One</option>
+                <option value="2">Team Two</option>
+                <option value="3">Team Three</option>
+            </select><label for="floatingSelectTeam">Team </label></div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <div class="form-floating"><select class="form-select" id="floatingSelectAssignees">
+                <option selected="selected">Select assignees </option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select><label for="floatingSelectAssignees">People </label></div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <div class="form-floating"><select class="form-select" id="floatingSelectAdmin">
+                <option selected="selected">Select admin</option>
+                <option value="1">Data Privacy One</option>
+                <option value="2">Data Privacy Two</option>
+                <option value="3">Data Privacy Three</option>
+            </select><label for="floatingSelectAdmin">Project Lead</label></div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <div class="flatpickr-input-container">
+                <div class="form-floating"><input class="form-control datetimepicker flatpickr-input" id="floatingInputStartDate" type="text" placeholder="end date" data-options="{&quot;disableMobile&quot;:true}" readonly="readonly"><label class="ps-6" for="floatingInputStartDate">Start date</label><span class="uil uil-calendar-alt flatpickr-icon text-body-tertiary"></span></div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <div class="flatpickr-input-container">
+                <div class="form-floating"><input class="form-control datetimepicker flatpickr-input" id="floatingInputDeadline" type="text" placeholder="deadline" data-options="{&quot;disableMobile&quot;:true}" readonly="readonly"><label class="ps-6" for="floatingInputDeadline">Deadline</label><span class="uil uil-calendar-alt flatpickr-icon text-body-tertiary"></span></div>
+            </div>
+        </div>
+        <div class="col-12 gy-6">
+            <div class="form-floating"><textarea class="form-control" id="floatingProjectOverview" placeholder="Leave a comment here" style="height: 100px"></textarea><label for="floatingProjectOverview">project overview</label></div>
+        </div>
+        <div class="col-md-6 gy-6">
+            <div class="form-floating"><select class="form-select" id="floatingSelectClient">
+                <option selected="selected">Select client</option>
+                <option value="1">Client One</option>
+                <option value="2">Client Two</option>
+                <option value="3">Client Three</option>
+            </select><label for="floatingSelectClient">client</label></div>
+        </div>
+        <div class="col-md-6 gy-6">
+            <div class="form-floating"><input class="form-control" id="floatingInputBudget" type="text" placeholder="Budget"><label for="floatingInputBudget">Budget</label></div>
+        </div>
+        <div class="col-12 gy-6"><div class="choices" data-type="select-multiple" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false"><div class="choices__inner"><select class="form-select choices__input" id="organizerMultiple" data-choices="data-choices" multiple="multiple" data-options="{&quot;removeItemButton&quot;:true,&quot;placeholder&quot;:true}" hidden="" tabindex="-1" data-choice="active"></select><div class="choices__list choices__list--multiple"></div><input type="text" class="choices__input choices__input--cloned" autocomplete="off" autocapitalize="off" spellcheck="false" role="textbox" aria-autocomplete="list" aria-label="Add tags" placeholder="Add tags" style="min-width: 9ch; width: 1ch;"></div><div class="choices__list choices__list--dropdown" aria-expanded="false"><div class="choices__list" aria-multiselectable="true" role="listbox"><div id="choices--organizerMultiple-item-choice-2" class="choices__item choices__item--choice choices__item--selectable is-highlighted" role="option" data-choice="" data-id="2" data-value="Biology" data-select-text="" data-choice-selectable="" aria-selected="true">Biology</div><div id="choices--organizerMultiple-item-choice-3" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="3" data-value="Brainlessness" data-select-text="" data-choice-selectable="">Brainlessness</div><div id="choices--organizerMultiple-item-choice-4" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="4" data-value="Jerry" data-select-text="" data-choice-selectable="">Jerry</div><div id="choices--organizerMultiple-item-choice-5" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="5" data-value="Neurology" data-select-text="" data-choice-selectable="">Neurology</div><div id="choices--organizerMultiple-item-choice-6" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="6" data-value="Not_the_mouse" data-select-text="" data-choice-selectable="">Not_the_mouse</div><div id="choices--organizerMultiple-item-choice-7" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="7" data-value="Rick" data-select-text="" data-choice-selectable="">Rick</div><div id="choices--organizerMultiple-item-choice-8" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="8" data-value="Stupidity" data-select-text="" data-choice-selectable="">Stupidity</div></div></div></div></div>
+        <div class="col-12 gy-6">
+            <div class="row g-3 justify-content-end">
+                <div class="col-auto"><button class="btn btn-phoenix-primary px-5">Cancel</button></div>
+                <div class="col-auto"><button class="btn btn-primary px-5 px-sm-15">Create Project</button></div>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
