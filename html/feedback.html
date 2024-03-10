@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>피드백</title>
+    <link rel="stylesheet" href="../css/feedback_style.css">
+    <style>
+        .playball-regular {
+            font-family: "Playball", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100px;
+            padding: 0 20px; /* 좌우 padding 조정 */
+            background: #FFFFFF;
+            box-shadow: 0px 4px 18.1px 2px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            /*margin: 15px 20px; !* 상하 margin, 좌우 margin 조정 *!*/
+            font-size: 2vw;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .menu-item {
+            display: flex;
+            cursor: pointer;
+            font-size: 2vw;
+            margin: 0 10px; /* 좌우 margin 추가 */
+        }
+        .menu-item:hover {
+            background-color: #f5f5f5; /* 배경색 변경 */
+            transition: 0.3s; /* 부드러운 전환 효과 추가 */
+            font-weight: bold;
+        }
+        @media screen and (max-width: 600px) {
+            .menu-item {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="menu" id="menu">
+    <div class="logo" onclick="redirectToMain()">
+        <div class="playball-regular">Diet &nbsp;HARD</div>
+    </div>
+    <div class="menu-item">마이페이지</div>
+    <div class="menu-item">목표 설정</div>
+    <div class="menu-item">기록 추가</div>
+    <div class="menu-item" onclick="feedback()">피드백</div>
+    <div class="menu-item" onclick="logout()">로그아웃</div>
+</div>
+<div class="centered">
+    <h2 class="temp">이곳은 2차 프로젝트 때 구현할 곳입니다. </h2>
+    <h2 class="temp">이곳은 2차 프로젝트 때 구현할 곳입니다. </h2>
+    <h2 class="temp">이곳은 2차 프로젝트 때 구현할 곳입니다. </h2>
+    <h2 class="temp">이곳은 2차 프로젝트 때 구현할 곳입니다. </h2>
+</div>
+<script>
+    function redirectToMain() {
+        window.location.href = 'toolbar.html';
+    }
+    function logout() {
+        window.location.href = 'login.html';
+    }
+    function toggleMenu() {
+        const menu = document.getElementById('menu');
+        menu.classList.toggle('show-mobile');
+    }
+    function feedback() {
+        window.location.href = 'feedback.html';
+    }
+</script>
+</body>
+</html>
