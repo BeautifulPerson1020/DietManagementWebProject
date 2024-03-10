@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <style>
+    </style>
+    <link rel="stylesheet" href="../css/loginstyle.css">
+</head>
+<body>
+<div class="register-box">
+    <h2>Register</h2>
+    <form action="#" method="post">
+        <div class="input-container">
+            <label for="id">Id:</label>
+            <input type="text" id="id" name="id" required>
+        </div>
+
+        <div class="input-container">
+            <label for="password">PassWord:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+
+        <div class="input-container">
+            <label for="confirmPassword">Confirm PassWord:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+        </div>
+
+        <div class="input-container">
+            <label for="email">Email (Optional) : </label>
+            <input type="email" id="email" name="email">
+        </div>
+
+        <div class="input-container">
+            <label>Telephone Number:</label>
+            <button type="button" class="verify-button" onclick="openPopup()">Verify</button>
+        </div>
+
+        <input type="submit" value="Submit">
+    </form>
+    <script defer src="../js/register.js"></script>
+</div>
+</body>
+</html>
