@@ -129,9 +129,11 @@
     <div class="goal-box">
         <h2>현재 목표</h2>
         <div id="current-goal">
-            <!-- 현재 목표가 있을 때 표시되는 내용 -->
-<!--            <p><strong>기간 : 2024.03.01 - 2024.03.31</strong>&nbsp;&nbsp;&nbsp;&nbsp;목표 칼로리: 2000kcal&nbsp;&nbsp;&nbsp;&nbsp;자금: 10만원</p>-->
-<!--            <br>-->
+<!--             현재 목표가 있을 때 표시되는 내용-->
+            <p id="current-goal-content">
+
+            </p>
+            <br>
         </div>
         <button class="add-goal-button" onclick="redirectToGoalAdd()">현재 목표 추가</button>
     </div>
@@ -141,11 +143,14 @@
         <h2>지난 목표</h2>
         <div class="past-goals-container">
             <!-- 과거 목표 박스 -->
-            <div class="past-goal-box" onclick="showObjectOptions()">
-                <p><strong>기간 : 2024.02.01 - 2024.02.28</strong>&nbsp;&nbsp;&nbsp;&nbsp;목표 칼로리: 1800kcal&nbsp;&nbsp;&nbsp;&nbsp;자금 : 40만원&nbsp;&nbsp;&nbsp;&nbsp;달성률: 80%</p>
+            <div class="past-goal-box" id="past-goal-1" onclick="showObjectOptions(1)">
+                <p><strong>기간 : 2024.02.01 - 2024.02.28</strong>&nbsp;&nbsp;&nbsp;&nbsp;목적 : 학기 준비용 자금 아끼기&nbsp;&nbsp;&nbsp;&nbsp;목표 칼로리: 180,000kcal&nbsp;&nbsp;&nbsp;&nbsp;자금 : 20만원&nbsp;&nbsp;&nbsp;&nbsp;달성률: 65%</p>
             </div>
-            <div class="past-goal-box" onclick="showObjectOptions()">
-                <p><strong>기간 : 2024.01.01 - 2024.01.31</strong>&nbsp;&nbsp;&nbsp;&nbsp;목표 칼로리: 1500kcal&nbsp;&nbsp;&nbsp;&nbsp;자금 : 10만원&nbsp;&nbsp;&nbsp;&nbsp;달성률: 100%</p>
+            <div class="past-goal-box" id="past-goal-2" onclick="showObjectOptions(2)">
+                <p><strong>기간 : 2024.01.03 - 2024.01.31</strong>&nbsp;&nbsp;&nbsp;&nbsp;목적 : 다이어트&nbsp;&nbsp;&nbsp;&nbsp;목표 칼로리: 70,000kcal&nbsp;&nbsp;&nbsp;&nbsp;자금 : 30만원&nbsp;&nbsp;&nbsp;&nbsp;달성률: 30%</p>
+            </div>
+            <div class="past-goal-box" id="past-goal-3" onclick="showObjectOptions(3)">
+                <p><strong>기간 : 2023.12.24 - 2024.01.02</strong>&nbsp;&nbsp;&nbsp;&nbsp;목적 : 신년 데이트&nbsp;&nbsp;&nbsp;&nbsp;목표 칼로리: 15,000kcal&nbsp;&nbsp;&nbsp;&nbsp;자금 : 100만원&nbsp;&nbsp;&nbsp;&nbsp;달성률: 100%</p>
             </div>
             <!-- 추가적인 과거 목표들의 박스들은 여기에 추가 -->
         </div>
@@ -162,11 +167,6 @@
     function toggleMenu() {
         const menu = document.getElementById('menu');
         menu.classList.toggle('show-mobile');
-    }
-    function showObjectOptions() {
-        // 과거 목표를 클릭하여 옵션 표시 (예: 상세보기, 저장, 공유)
-        // 이 부분은 원하시는 기능에 맞게 구현해야 합니다.
-        alert("옵션을 표시합니다.");
     }
 </script>
 </body>
