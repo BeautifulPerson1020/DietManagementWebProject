@@ -16,16 +16,16 @@ function searchFood(){
     }
     else if(food.filter((value) => value.food_name == searchInput.value) != 0){
         let result = food.filter((value) => value.food_name == searchInput.value);
-        console.log(result)
         searchResult.replaceChildren();
-        const newHtml = document.createElement("div");
-        const newText = document.createTextNode("AppendChild");
-        newHtml.append(newText);
-        searchResult.appendChild(newHtml);
+       for(i=0;i<result.length;i++){
+           const newHtml = document.createElement("div");
+           const newText = document.createTextNode(result[i].food_name);
+           newHtml.append(newText);
+           searchResult.appendChild(newHtml);
+       }
     }
     else {
-        let choice =  confirm("검색결과가 없습니다. 직접 입력하시겠습니까?");
-        if(choice){
+        if(confirm("검색결과가 없습니다. 직접 입력하시겠습니까?")){
             location.href="../html/record_user_create.html";
         }
     }
@@ -42,7 +42,10 @@ function recordFood(){
         alert("가격을 입력하세요");
     }
     else {
-        /*저장할 함수*/
+        if(confirm("저장하시겠습니까?")){
+            /*저장 코드*/
+            console.log("저장")
+        }
     }
 }
 
