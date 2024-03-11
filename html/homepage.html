@@ -5,30 +5,197 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/homepage_css/calender_style.css">
     <title>Calendar</title>
+    <style>
+        .summary {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch; /* 요소들을 수직으로 쭉 늘립니다. */
+            margin-top: 50px;
+            width: 55%;
+            height: 65vh;
+            /*background-color: red;*/
+        }
+        .summary_square div {
+            margin-left: 5%;
+            margin-top: 8%;
+            display: flex;
+            justify-content: left;
+        }
+
+        .summary_square div:nth-child(2) {
+            margin-top: 13%;
+            margin-bottom: 13%
+        }
+
+        .summary_square div p {
+            font-size: 30px;
+            margin-left: 10%;
+        }
+
+        .changeBtn{
+            margin-left: 5%;
+            width : 50%;
+            height: 10%;
+            display : flex;
+            justify-content: left;
+            /*background-color: aqua;*/
+        }
+
+        .ch-btn {
+            border: none;
+            width : 50%;
+            height: 100%;
+            background-color: #EEEEEE;
+        }
+        .monthly {
+            border-radius: 10px 0px 0px 0px;
+            border-right: 1px solid black; /* 오른쪽에 1px의 검정색 경계를 추가합니다. */
+        }
+        .daily {
+            border-radius: 0px 10px 0px 0px;
+
+        }
+
+        .summary_square {
+            width: 100%;
+            height: 90%;
+            border-radius: 58px;
+            border: 1px solid #000;
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+            background-color: #EEEEEE;
+        }
+
+        .calendar_and_summary {
+            margin-top : 1.8%;
+            display: flex;
+            justify-content: left;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch; /* 요소들을 수직으로 쭉 늘립니다. */
+            min-height: 100vh; /* 화면 전체 높이를 차지하도록 설정합니다. */
+        }
+
+        .playball-regular {
+            font-family: "Playball", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100px;
+            padding: 0 20px; /* 좌우 padding 조정 */
+            background: #FFFFFF;
+            box-shadow: 0px 4px 18.1px 2px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            font-size: 2vw;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .menu-item {
+            display: flex;
+            cursor: pointer;
+            font-size: 2vw;
+            margin: 0 10px; /* 좌우 margin 추가 */
+        }
+
+        .menu-item:hover {
+            /*color: #ff5733; !* 텍스트 색상 변경 *!*/
+            background-color: #f5f5f5; /* 배경색 변경 */
+            transition: 0.3s; /* 부드러운 전환 효과 추가 */
+            font-weight: bold;
+        }
+
+        @media screen and (max-width: 600px) {
+            .menu-item {
+                display: flex;
+            }
+        }
+
+    </style>
 </head>
 <body>
-<div class="calendar">
-    <div class="header">
-        <div class="year-month"></div>
-        <div class="nav">
-            <button class="nav-btn go-prev" onclick="prevMonth()">&lt;</button>
-            <button class="nav-btn go-today" onclick="goToday()">Today</button>
-            <button class="nav-btn go-next" onclick="nextMonth()">&gt;</button>
+<div class="container">
+    <div class="menu" id="menu">
+        <div class="logo" onclick="redirectToMain()">
+            <div class="playball-regular">Diet &nbsp;HARD</div>
         </div>
+        <div class="menu-item">마이페이지</div>
+        <div class="menu-item">목표 설정</div>
+        <div class="menu-item">기록 추가</div>
+        <div class="menu-item">종합 및 피드백</div>
+        <div class="menu-item" onclick="logout()">로그아웃</div>
     </div>
-    <div class="main">
-        <div class="days">
-            <div class="day">일</div>
-            <div class="day">월</div>
-            <div class="day">화</div>
-            <div class="day">수</div>
-            <div class="day">목</div>
-            <div class="day">금</div>
-            <div class="day">토</div>
+    <div class="calendar_and_summary">
+        <div class="calendar">
+            <div class="header">
+                <div class="year-month"></div>
+                <div class="nav">
+                    <button class="nav-btn go-prev" onclick="prevMonth()">&lt;</button>
+                    <button class="nav-btn go-today" onclick="goToday()">Today</button>
+                    <button class="nav-btn go-next" onclick="nextMonth()">&gt;</button>
+                </div>
+            </div>
+            <div class="main">
+                <div class="days">
+                    <div class="day">일</div>
+                    <div class="day">월</div>
+                    <div class="day">화</div>
+                    <div class="day">수</div>
+                    <div class="day">목</div>
+                    <div class="day">금</div>
+                    <div class="day">토</div>
+                </div>
+                <div class="dates"></div>
+            </div>
         </div>
-        <div class="dates"></div>
+        <div class="summary">
+            <div class="changeBtn">
+                <button class="ch-btn monthly">월간 기록 종합</button>
+                <button class="ch-btn daily">일간 세부 기록</button>
+            </div>
+            <div class="summary_square">
+                <div>
+                    <h2>평균 섭취 칼로리 :</h2>
+                    <p id="output-average-kcal">value</p>
+                </div>
+                <div>
+                    <h2>영양 상태 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</h2>
+                    <p id="output-nutrition-status">value</p>
+                </div>
+                <div>
+                    <h2>평균 지출 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</h2>
+                    <p id="output-average-expense">value</p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+<script>
+    function redirectToMain() {
+        window.location.href = 'homepage.html';
+    }
+
+    function logout() {
+        window.location.href = 'login.html';
+    }
+
+    function toggleMenu() {
+        const menu = document.getElementById('menu');
+        menu.classList.toggle('show-mobile');
+    }
+</script>
 <script src="/js/homepage_js/calendar.js"></script>
 </body>
 </html>

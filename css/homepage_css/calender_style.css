@@ -5,17 +5,21 @@
     box-sizing: border-box;
 }
 
-body {
-    margin-right: 60em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
+/*body {*/
+/*    margin-right: 60em;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    min-height: 100vh;*/
+/*}*/
 
 .calendar {
+
     width: 600px;
-    margin: 50px;
+    margin-left : 100px;
+    margin-top : 50px;
+    margin-right : 100px;
+
 }
 
 .header {
