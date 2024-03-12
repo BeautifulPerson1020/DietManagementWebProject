@@ -28,14 +28,6 @@
 </div>
 
 <div class="col-xl-8 position-absolute start-50 translate-middle-x">
-    <div class="row mb-3">
-        <div class="col-sm-10 col-md-10 me-auto">
-            <input class="form-control form-control-lg" id="searchInput" type="text" placeholder="음식이름">
-        </div>
-        <div class="row justify-content-end col-sm-2">
-            <button class="btn p-0" onclick="searchFood()">검색</button>
-        </div>
-    </div>
     <div class="row mb-3 g-3">
         <div class="col-sm-4 col-md-4">
             <select class="form-select form-select-lg" id="eatTime">
@@ -52,14 +44,35 @@
         <div class="col-sm-4 col-md-4">
             <input class="form-control form-control-lg" id="foodCost" type="text" placeholder="가격">
         </div>
-        <div class="col-sm-12 mt-3">
-            <div class="row g-3 justify-content-end">
-                <div class="col-auto"><button class="btn btn-primary px-4" onclick="recordFood()">저장하기</button></div>
-                <div class="col-auto"><button class="btn btn-phoenix-primary px-4" onclick="recordCancle()">취소하기</button></div>
-            </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-10 col-md-10 me-auto">
+            <input class="form-control form-control-lg" id="searchInput" type="text" placeholder="음식이름">
+        </div>
+        <div class="row justify-content-end col-sm-2">
+            <button class="btn p-0" onclick="searchFood()">검색</button>
         </div>
     </div>
-    <div class="col-sm-12 col-md-12" id="searchResult"></div>
+    <div class="col-sm-12 col-md-12 fs-5">
+        <table class="table table-sm" id="searchTable">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">음식이름</th>
+                <th scope="col">칼로리(kcal)</th>
+                <th scope="col">당류(g)</th>
+            </tr>
+            </thead>
+            <tbody id="searchResult">
+            </tbody>
+        </table>
+    </div>
+    <div class="col-sm-12 mt-3">
+        <div class="row g-3 justify-content-end">
+            <div class="col-auto"><button class="btn btn-primary px-4" onclick="recordFood()">저장하기</button></div>
+            <div class="col-auto"><button class="btn btn-phoenix-primary px-4" onclick="recordCancle()">취소하기</button></div>
+        </div>
+    </div>
 </div>
 </body>
 </html>
