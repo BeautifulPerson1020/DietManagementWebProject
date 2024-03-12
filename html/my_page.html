@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/My_Page_css.css">
+    <title>Your Web Page Title</title>
+
+
+</head>
+<body>
+<div class="menu" id="menu">
+    <div class="logo" onclick="redirectToMain()">
+        <div class="playball-regular">Diet &nbsp;HARD</div>
+    </div>
+    <div class="menu-item">마이페이지</div>
+    <div class="menu-item">목표 설정</div>
+    <div class="menu-item">기록 추가</div>
+    <div class="menu-item">종합 및 피드백</div>
+    <div class="menu-item" onclick="logout()">로그아웃</div>
+</div>
+
+<div class="profile-box" id="myPage">
+    <h2>My Page</h2>
+    <img src="user_photo.jpg" alt="User Photo" width="100">
+    <p id="introduction">Introduction: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p>SNS Links: <a href="#" id="facebookLink">Facebook</a>, <a href="#" id="twitterLink">Twitter</a>, <a href="#" id="instagramLink">Instagram</a></p>
+</div>
+
+
+
+<div class="profile-box">
+    <h2>User Information</h2>
+    <p>Name: <span id="name">John Doe</span></p>
+    <p>Age: <span id="age">25</span></p>
+    <p>Height: <span id="height">175 cm</span></p>
+    <p>Weight: <span id="weight">70 kg</span></p>
+    <p>Goal Weight: <span id="goal_weight">65 kg</span></p> <!-- Added line for goal weight -->
+    <p>Email: <span id="email">john@example.com</span></p>
+    <p>Phone: <span id="phone">123-456-7890</span></p>
+    <p>Lifestyle Habit: <span id="lifestyle_habit">Active</span></p>
+    <p>Weekly Exercise Time: <span id="weekly_exercise_time">3 hours</span></p>
+
+    <!-- Button Container -->
+    <div class="button-container">
+        <button onclick="withdrawal()" id="withdrawalBtn">Withdrawal</button>
+        <button onclick="updateInfo()">Update Information</button>
+    </div>
+</div>
+
+</body>
+<script>
+    var isWithdrawalMode = false; // Flag to track withdrawal mode
+    var dummyPassword = "1234"; // Dummy password
+
+    function redirectToMain() {
+        window.location.href = 'toolbar.html';
+    }
+
+    function logout() {
+        window.location.href = 'login.html';
+    }
+
+    function openGoalWeightPrompt() {
+        var goalWeight = prompt("Enter your goal weight:");
+        if (goalWeight !== null) {
+            document.getElementById("goal_weight").textContent = goalWeight + " kg";
+        }
+    }
+
+    function toggleWithdrawal() {
+        if (isWithdrawalMode) {
+            var password = prompt("Enter your password to cancel withdrawal:");
+            if (password === dummyPassword) {
+                cancelWithdrawal();
+            } else {
+                alert("Incorrect password. Withdrawal cancellation failed.");
+            }
+        } else {
+            var password = prompt("Enter your password to confirm withdrawal:");
+            if (password === dummyPassword) {
+                initiateWithdrawal();
+            } else {
+                alert("Incorrect password. Withdrawal failed.");
+            }
+        }
+    }
+
+    function initiateWithdrawal() {
+        isWithdrawalMode = true;
+        alert("Withdrawal initiated. Click the withdrawal button again to confirm.");
+        document.getElementById('withdrawalBtn').textContent = 'Confirm Withdrawal';
+    }
+
+    function cancelWithdrawal() {
+        isWithdrawalMode = false;
+        alert("Withdrawal canceled.");
+        document.getElementById('withdrawalBtn').textContent = 'Withdrawal';
+    }
+
+    function withdrawal() {
+        if (isWithdrawalMode) {
+            var password = prompt("Enter your password to cancel account withdrawal :");
+            if (password === dummyPassword) {
+                handleWithdrawal();
+            } else {
+                alert("Incorrect password. Withdrawal failed.");
+            }
+        } else {
+            toggleWithdrawal();
+        }
+    }
+
+    function handleWithdrawal() {
+
+        alert("Account withdrawal cancellation completed");
+        cancelWithdrawal();
+
+    }
+
+    function updateInfo() {
+        var password = prompt("Enter your password:");
+        if (password === dummyPassword) {
+            var newName = prompt("Enter new name:");
+            var newAge = prompt("Enter new age:");
+            var newHeight = prompt("Enter new height:");
+            var newWeight = prompt("Enter new weight:");
+            var newEmail = prompt("Enter new email:");
+            var newPhone = prompt("Enter new phone number:");
+            var newLifestyleHabit = prompt("Enter new lifestyle habit:");
+            var newWeeklyExerciseTime = prompt("Enter new weekly exercise time:");
+
+            document.getElementById("name").textContent = newName;
+            document.getElementById("age").textContent = newAge;
+            document.getElementById("height").textContent = newHeight;
+            document.getElementById("weight").textContent = newWeight;
+            document.getElementById("email").textContent = newEmail;
+            document.getElementById("phone").textContent = newPhone;
+            document.getElementById("lifestyle_habit").textContent = newLifestyleHabit;
+            document.getElementById("weekly_exercise_time").textContent = newWeeklyExerciseTime;
+
+            alert("Information updated successfully!");
+        } else {
+            alert("Incorrect password. Please try again.");
+        }
+    }
+
+</script>
+</html>
