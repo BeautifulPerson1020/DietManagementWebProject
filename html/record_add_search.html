@@ -47,7 +47,9 @@
     </div>
     <div class="row mb-3">
         <div class="col-sm-10 col-md-10 me-auto">
-            <input class="form-control form-control-lg" id="searchInput" type="text" placeholder="음식이름">
+            <input class="form-control form-control-lg" id="searchInput" type="text"
+                   placeholder="음식이름" onkeyup="if(event.keyCode===13){searchFood()}">
+            <!--event 대체하는 키워드?-->
         </div>
         <div class="row justify-content-end col-sm-2">
             <button class="btn p-0" onclick="searchFood()">검색</button>

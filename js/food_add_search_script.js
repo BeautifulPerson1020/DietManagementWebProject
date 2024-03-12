@@ -6,7 +6,6 @@ const foodAmount = document.getElementById("foodAmount");
 const foodCost = document.getElementById("foodCost");
 const searchTable = document.getElementById("searchTable");
 
-var food;
 fetch('../json/food.json')
     .then(res => res.json()) // .json() 메서드는 json 응답을 JavaScript 객체 리터럴로 구문분석합니다.
     .then(data => food=data)
