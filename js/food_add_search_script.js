@@ -6,6 +6,7 @@ const foodAmount = document.getElementById("foodAmount");
 const foodCost = document.getElementById("foodCost");
 const searchTable = document.getElementById("searchTable");
 
+var food;
 fetch('../json/food.json')
     .then(res => res.json()) // .json() 메서드는 json 응답을 JavaScript 객체 리터럴로 구문분석합니다.
     .then(data => food=data)
@@ -30,7 +31,10 @@ function searchFood(){
         alert("음식이름을 입력하세요");
     }
     else {
-        let result = food.filter((value) => value.식품명 == searchInput.value);
+        /*let searchWord = new RegExp(searchInput.value); //exec()함수 사용하려 만든 변수
+        let result = food.filter((value) => value.식품명.exec(searchWord));    //식품명.exec is not a function 오류*/
+        /*exec()함수와 mathc()함수의 차이?*/
+        let result = food.filter((value) => value.식품명.match(searchInput.value));
         if(result.length != 0) {
             searchResult.replaceChildren();
             for(i=0;i<result.length;i++){
@@ -45,17 +49,6 @@ function searchFood(){
                 });
                 searchResult.appendChild(newTr);
             }
-            /*for (i = 0; i < result.length; i++) {
-                const newHtml = document.createElement("h5");
-                newHtml.className = 'm-0 p-3 border-bottom';
-                const newText = document.createTextNode(result[i].food_name + " 칼로리(kcal)" + result[i].food_calories + " 당류(g)" + result[i].food_sugars);
-                newHtml.append(newText);
-                newHtml.addEventListener('click', selectFood = () => {
-                    /!*저장 함수*!/
-                    console.log(newHtml.innerText);
-                });
-                searchResult.appendChild(newHtml);
-            }*/
         }
         else {
             if(confirm("검색결과가 없습니다. 직접 입력하시겠습니까?")){
