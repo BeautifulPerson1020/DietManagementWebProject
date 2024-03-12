@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <style>
+
+        .register-box {
+            max-width: 400px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .input-container {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, select {
+            width: calc(100% - 16px); /* 100%에서 패딩을 빼서 조절 */
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        .dropdown-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dropdown-container select {
+            width: 70%;
+        }
+
+        .unit-label {
+            width: 10%;
+            padding-left: 10px;
+            box-sizing: border-box;
+            display: inline-block;
+        }
+
+        .form-next-button {
+            background-color: #858585; /* 색상 조정 */
+            width: 30%;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            float: right;
+            border-radius: 15px; /* 반경 조정 */
+        }
+    </style>
+    <link rel="stylesheet" href="../css/loginstyle.css">
+</head>
+
+<body>
+<div class="register-box">
+    <h2>Register</h2><br><br>
+    <form action="#" method="post">
+
+        <div class="input-container">
+            <label for="age">Age:</label>
+            <input type="text" id="age" name="age" placeholder="e.g., 25" required>
+        </div>
+
+        <div class="input-container dropdown-container">
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+
+        <div class="input-container">
+            <label for="weight">Weight:</label>
+            <input type="text" id="weight" name="weight" placeholder="e.g., 70">
+            <span class="unit-label">kg</span>
+        </div>
+
+        <div class="input-container">
+            <label for="height">Height:</label>
+            <input type="text" id="height" name="height" placeholder="e.g., 175">
+            <span class="unit-label">cm</span>
+        </div>
+
+        <div class="input-container">
+            <label for="athleticExperience">Athletic Experience:</label>
+            <input type="text" id="athleticExperience" name="athleticExperience" required>
+        </div>
+
+        <div class="input-container">
+            <label for="goal">Goal:</label>
+            <input type="text" id="goal" name="goal" required>
+        </div>
+
+        <button type="button" class="form-next-button">Next</button>
+
+    </form>
+    <script defer src="../js/register.js"></script>
+</div>
+</body>
+
+</html>
