@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/homepage.css">
+    <link rel="stylesheet" href="../css/homepage.css">
     <title>Calendar</title>
     <style>
         .summary {
@@ -131,10 +131,10 @@
         <div class="logo" onclick="redirectToMain()">
             <div class="playball-regular">Diet &nbsp;HARD</div>
         </div>
-        <div class="menu-item">마이페이지</div>
-        <div class="menu-item">목표 설정</div>
-        <div class="menu-item">기록 추가</div>
-        <div class="menu-item">종합 및 피드백</div>
+        <div class="menu-item" onclick="redirectToMyPage()">마이페이지 </div>
+        <div class="menu-item" onclick="redirectToGoal()">목표관리</div>
+        <div class="menu-item" onclick="redirectToRecord()">기록 추가</div>
+        <div class="menu-item" onclick="redirectToFeedback()">피드백 </div>
         <div class="menu-item" onclick="logout()">로그아웃</div>
     </div>
     <div class="calendar_and_summary">
@@ -186,16 +186,26 @@
     function redirectToMain() {
         window.location.href = 'homepage.html';
     }
-
+    function redirectToMyPage() {
+        window.location.href = 'my_page.html';
+    }
+    function redirectToGoal() {
+        window.location.href = 'user_object.html';
+    }
+    function redirectToRecord() {
+        window.location.href = 'record_main.html';
+    }
+    function redirectToFeedback() {
+        window.location.href = 'feedback.html';
+    }
     function logout() {
         window.location.href = 'login.html';
     }
-
     function toggleMenu() {
         const menu = document.getElementById('menu');
         menu.classList.toggle('show-mobile');
     }
 </script>
-<script src="/js/homepage.js"></script>
+<script defer src="../js/homepage.js"></script>
 </body>
 </html>
