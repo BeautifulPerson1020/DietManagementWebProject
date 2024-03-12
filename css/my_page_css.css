@@ -1,0 +1,52 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    padding: 0 20px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 18.1px 2px rgba(0, 0, 0, 0.25);
+    font-size: 2vw;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.menu-item {
+    cursor: pointer;
+    font-size: 2vw;
+    margin: 0 10px;
+}
+
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.profile-box {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 20px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+button {
+    padding: 6px 10px;
+    margin-left: 10px;
+    font-size: 14px;
+}
