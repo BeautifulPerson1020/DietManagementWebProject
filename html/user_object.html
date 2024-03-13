@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Object Control</title>
 <!--    <link rel="stylesheet" href="/css/object_style.css">-->
-    <script defer src="/js/object_option.js"></script>
+    <script defer src="../js/object_option.js"></script>
     <style>
         .playball-regular {
             font-family: "Playball", cursive;
@@ -118,10 +118,10 @@
     <div class="logo" onclick="redirectToMain()">
         <div class="playball-regular">Diet &nbsp;HARD</div>
     </div>
-    <div class="menu-item">마이페이지</div>
-    <div class="menu-item">목표 관리</div>
-    <div class="menu-item">기록 추가</div>
-    <div class="menu-item">피드백</div>
+    <div class="menu-item" onclick="redirectToMyPage()">마이페이지 </div>
+    <div class="menu-item" onclick="redirectToGoal()">목표관리</div>
+    <div class="menu-item" onclick="redirectToRecord()">기록 추가</div>
+    <div class="menu-item" onclick="redirectToFeedback()">피드백 </div>
     <div class="menu-item" onclick="logout()">로그아웃</div>
 </div>
 <div id="gpt">
@@ -156,18 +156,5 @@
         </div>
     </div>
 </div>
-
-<script>
-    function redirectToMain() {
-        window.location.href = 'toolbar.html';
-    }
-    function logout() {
-        window.location.href = 'login.html';
-    }
-    function toggleMenu() {
-        const menu = document.getElementById('menu');
-        menu.classList.toggle('show-mobile');
-    }
-</script>
 </body>
 </html>

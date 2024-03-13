@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/My_Page_css.css">
+    <link rel="stylesheet" href="../css/my_page_css.css">
     <title>Your Web Page Title</title>
 
 
@@ -13,10 +13,10 @@
     <div class="logo" onclick="redirectToMain()">
         <div class="playball-regular">Diet &nbsp;HARD</div>
     </div>
-    <div class="menu-item">마이페이지</div>
-    <div class="menu-item">목표 설정</div>
-    <div class="menu-item">기록 추가</div>
-    <div class="menu-item">종합 및 피드백</div>
+    <div class="menu-item" onclick="redirectToMyPage()">마이페이지 </div>
+    <div class="menu-item" onclick="redirectToGoal()">목표관리</div>
+    <div class="menu-item" onclick="redirectToRecord()">기록 추가</div>
+    <div class="menu-item" onclick="redirectToFeedback()">피드백 </div>
     <div class="menu-item" onclick="logout()">로그아웃</div>
 </div>
 
@@ -54,13 +54,28 @@
     var dummyPassword = "1234"; // Dummy password
 
     function redirectToMain() {
-        window.location.href = 'toolbar.html';
+        window.location.href = 'homepage.html';
     }
 
+    function redirectToMyPage() {
+        window.location.href = 'my_page.html';
+    }
+    function redirectToGoal() {
+        window.location.href = 'user_object.html';
+    }
+    function redirectToRecord() {
+        window.location.href = 'record_main.html';
+    }
+    function redirectToFeedback() {
+        window.location.href = 'feedback.html';
+    }
     function logout() {
         window.location.href = 'login.html';
     }
-
+    function toggleMenu() {
+        const menu = document.getElementById('menu');
+        menu.classList.toggle('show-mobile');
+    }
     function openGoalWeightPrompt() {
         var goalWeight = prompt("Enter your goal weight:");
         if (goalWeight !== null) {
