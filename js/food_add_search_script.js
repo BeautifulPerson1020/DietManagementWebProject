@@ -131,7 +131,8 @@ function recordFood(){
     else {
         if(confirm("저장하시겠습니까?")){
             /*저장 코드*/
-            console.log("저장")
+            console.log("저장");
+            location.href="../html/record_main.html";
         }
     }
 }
