@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .verification-box {
+            max-width: 400px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-container {
+            margin-bottom: 15px;
+            text-align: left;
+            display: flex;
+            align-items: center; /* 세로 중앙 정렬 */
+        }
+
+        label {
+            display: inline-block;
+            width: 120px; /* 레이블의 너비를 조절 */
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: calc(100% - 130px); /* 레이블의 너비에 따라 입력란의 너비를 조절 */
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #D9D9D9;
+            font-weight: bold;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 20px; /* 둥글게 만들기 */
+            cursor: pointer;
+            width: auto; /* 버튼이 자동으로 너비 조절 */
+            margin-left: 10px; /* 버튼과 입력란 사이의 여백 */
+        }
+
+        .input-container .button-container {
+            width : 20%;
+            display: flex;
+            align-items: center;
+            margin-left: 10px;
+        }
+        .verification-name {
+            margin-right: 80px;
+        }
+    </style>
+    <script>
+        function sendVerificationCode() {
+            var name = document.getElementById('name').value;
+            var phoneNumber = document.getElementById('phoneNumber').value;
+
+            // 서버에 이름과 전화번호를 보내어 SMS를 요청
+            fetch('/send_verification_code', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name: name, phoneNumber: phoneNumber })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    alert('Verification code sent successfully!');
+                    // 여기에서 사용자가 받은 코드를 입력하는 입력란을 보여줄 수 있습니다.
+                    showVerificationInputs();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+
+        function showVerificationInputs() {
+            var verificationInputs = document.getElementById('verificationInputs');
+            verificationInputs.style.display = 'block';
+        }
+
+        function verifyCode() {
+            var enteredCode = document.getElementById('verificationCode').value;
+            // 서버에 입력한 코드를 보내어 검증
+            // 검증이 성공하면 회원 가입을 완료하도록 구현 가능
+        }
+    </script>
+</head>
+<body>
+<div class="verification-box">
+    <h2>전화번호 인증</h2>
+    <div class="input-container">
+        <label for="name">Name:</label>
+        <input class = "verification-name" type="text" id="name" name="name" required>
+    </div>
+    <div class="input-container">
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="text" id="phoneNumber" name="phoneNumber" required>
+        <div class="button-container">
+            <button onclick="sendVerificationCode()">resend</button>
+        </div>
+    </div>
+
+    <!-- 인증 코드 입력란 -->
+    <div id="verificationInputs">
+        <div class="input-container">
+            <label for="verificationCode">Verifying Code:</label>
+            <input type="text" id="verificationCode" name="verificationCode" required>
+            <div class="button-container">
+                <button onclick="verifyCode()">confirm</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
