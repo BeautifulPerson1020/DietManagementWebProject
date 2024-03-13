@@ -14,8 +14,7 @@
 </head>
 <body>
 <script defer src="../js/toolbar_script.js"></script>
-<script defer src="../js/food_user_script.js" type="module"></script>
-
+<script defer src="../js/food_user_script.js"></script>
 <div class="menu mb-5" id="menu">
     <div class="logo" onclick="redirectToMain()">
         <div class="playball-regular">Diet &nbsp;HARD</div>
@@ -39,8 +38,8 @@
     </div>
     <div class="row g-3 justify-content-end">
         <div class="col-auto">
-            <button class="btn btn-primary px-4" id="saveUserFood">저장하기</button>
-            <button class="btn btn-phoenix-primary px-4" id="cancleCreate">취소하기</button>
+            <button class="btn btn-primary px-4" onclick="createFood()">저장하기</button>
+            <button class="btn btn-phoenix-primary px-4" onclick="createCancle()">취소하기</button>
         </div>
     </div>
 </div>
