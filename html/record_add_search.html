@@ -13,10 +13,12 @@
     <link rel="stylesheet" href="../css/toolbar_style.css">
 </head>
 <body>
-<script defer src="../js/food_add_search_script.js"></script>
 <script defer src="../js/toolbar_script.js"></script>
+<script defer src="../js/food_add_search_script.js" type="module"></script>
 
-<div class="menu mb-5" id="menu">
+
+
+<div class="menu" id="menu">
     <div class="logo" onclick="redirectToMain()">
         <div class="playball-regular">Diet &nbsp;HARD</div>
     </div>
@@ -27,7 +29,7 @@
     <div class="menu-item" onclick="logout()">로그아웃</div>
 </div>
 
-<div class="col-xl-8 position-absolute start-50 translate-middle-x">
+<div class="col-xl-8 position-absolute start-50 translate-middle-x mt-5">
     <div class="row mb-3 g-3">
         <div class="col-sm-4 col-md-4">
             <select class="form-select form-select-lg" id="eatTime">
@@ -48,11 +50,11 @@
     <div class="row mb-3">
         <div class="col-sm-10 col-md-10 me-auto">
             <input class="form-control form-control-lg" id="searchInput" type="text"
-                   placeholder="음식이름" onkeyup="if(event.keyCode===13){searchFood()}">
+                   placeholder="음식이름">
             <!--event 대체하는 키워드?-->
         </div>
         <div class="row justify-content-end col-sm-2">
-            <button class="btn p-0" onclick="searchFood()">검색</button>
+            <button class="btn p-0" id="searchBtn">검색</button>
         </div>
     </div>
     <div class="col-sm-12 col-md-12 fs-5">
@@ -68,11 +70,14 @@
             <tbody id="searchResult">
             </tbody>
         </table>
+        <div class="pagination" id="pagination">
+            <!-- Pagination buttons will be added dynamically -->
+        </div>
     </div>
     <div class="col-sm-12 mt-3">
         <div class="row g-3 justify-content-end">
-            <div class="col-auto"><button class="btn btn-primary px-4" onclick="recordFood()">저장하기</button></div>
-            <div class="col-auto"><button class="btn btn-phoenix-primary px-4" onclick="recordCancle()">취소하기</button></div>
+            <div class="col-auto"><button class="btn btn-primary px-4" id="recordSaveBtn">저장하기</button></div>
+            <div class="col-auto"><button class="btn btn-phoenix-primary px-4" id="recordCancleBtn">취소하기</button></div>
         </div>
     </div>
 </div>
