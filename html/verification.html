@@ -61,39 +61,7 @@
         }
     </style>
     <script>
-        function sendVerificationCode() {
-            var name = document.getElementById('name').value;
-            var phoneNumber = document.getElementById('phoneNumber').value;
 
-            // 서버에 이름과 전화번호를 보내어 SMS를 요청
-            fetch('/send_verification_code', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ name: name, phoneNumber: phoneNumber })
-            })
-                .then(response => response.json())
-                .then(data => {
-                    alert('Verification code sent successfully!');
-                    // 여기에서 사용자가 받은 코드를 입력하는 입력란을 보여줄 수 있습니다.
-                    showVerificationInputs();
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-        }
-
-        function showVerificationInputs() {
-            var verificationInputs = document.getElementById('verificationInputs');
-            verificationInputs.style.display = 'block';
-        }
-
-        function verifyCode() {
-            var enteredCode = document.getElementById('verificationCode').value;
-            // 서버에 입력한 코드를 보내어 검증
-            // 검증이 성공하면 회원 가입을 완료하도록 구현 가능
-        }
     </script>
 </head>
 <body>
@@ -122,5 +90,6 @@
         </div>
     </div>
 </div>
+<script defer src="../js/register.js"></script>
 </body>
 </html>

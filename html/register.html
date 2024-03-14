@@ -5,83 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Page</title>
     <link rel="stylesheet" href="../css/common.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-        }
-
-        .register-box {
-            max-width: 400px;
-            margin: auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .input-container {
-            margin-bottom: 15px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        input {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-        }
-
-        .verify-button {
-            background-color: #4caf50;
-            color: #fff;
-            border: none;
-            padding: 8px 12px;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/register_style.css">
     <link rel="stylesheet" href="../css/loginstyle.css">
 </head>
 <body>
 <div class="register-box">
     <h2>Register</h2>
-    <form action="#" method="post">
+    <form action="#" method="post" onsubmit="return validateForm1()">
         <div class="input-container">
             <label for="id">Id:</label>
-            <input type="text" id="id" name="id" required>
+            <input type="text" id="id" name="id" placeholder="영어와 숫자로만 이루어진 ID" pattern="[A-Za-z0-9]+" required>
         </div>
 
         <div class="input-container">
             <label for="password">PassWord:</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" name="password" placeholder="최소 6자리, 영어와 숫자 섞여야 함" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$" required>
         </div>
 
         <div class="input-container">
             <label for="confirmPassword">Confirm PassWord:</label>
-            <input type="password" id="confirmPassword" name="confirmPassword" required>
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="비밀번호 확인" required>
         </div>
 
         <div class="input-container">
             <label for="email">Email (Optional) : </label>
-            <input type="email" id="email" name="email">
+            <input type="email" id="email" name="email" placeholder="이메일 주소" required>
         </div>
 
         <div class="input-container">
-            <label>Telephone Number:</label>
+            <label>Telephone Number</label>
             <button type="button" class="verify-button" onclick="openVerificationPopup()">Verify</button>
         </div>
 
-        <input type="submit" value="sign up">
+        <button type="button" class="form-next-button" onclick="redirectToRegister_detail()">sign up</button>
     </form>
     <script defer src="../js/register.js"></script>
 </div>
-<div id="verificationPopup" style="display: none;">
-    <label for="verificationCode">Enter Verification Code:</label>
-    <input type="text" id="verificationCode" name="verificationCode" required>
-    <button onclick="verifyCode()">Confirm</button>
-</div>
+
 </body>
 </html>
