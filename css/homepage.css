@@ -14,11 +14,11 @@
 /*}*/
 
 .calendar {
-
-    width: 600px;
-    margin-left : 100px;
-    margin-top : 50px;
-    margin-right : 100px;
+    width: 45em;
+    height: 39em;
+    margin-left : 3%;
+    margin-top : 2%;
+    margin-right : 2% ;
 
 }
 

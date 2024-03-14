@@ -15,6 +15,10 @@ let dailyIntakeCalories = 0;
 let dailyIntakeSugars = 0;
 let dailyCost = 0;
 
+const button = document.querySelector('.monthly');
+button.style.backgroundColor = '#d3d3d3'; // 클릭된 버튼의 색상으로 변경합니다.
+
+
 const renderCalender = () => {
     viewYear = date.getFullYear();
     viewMonth = date.getMonth();
@@ -71,7 +75,8 @@ const renderCalender = () => {
             }
         }
     }
-
+    fetchMonthlyAverageData();
+    updateMonthlyDataOnScreen();
     // console.log(today.getDate());
 }
 
@@ -106,7 +111,8 @@ const popup = () => {
             // 클릭된 div.date의 하위 span 요소 선택
             let span = dateDiv.querySelector('span');
 
-            console.log(span.innerHTML.toString());
+            // console.log(span.innerHTML.toString());
+            console.log(fetchedDataArr);
             // span 요소의 클래스에 따라 다른 동작 수행
             // 버튼클릭시 JSON 을 fetch함
             if (span.classList.contains('this')) {
@@ -311,9 +317,6 @@ function updateMonthlyDataOnScreen() {
         console.error('output-average-expense 요소를 찾을 수 없습니다.');
     }
 }
-
-// 웹 시작시 월간 데이터를 출력하도록 수정합니다.
-fetchMonthlyAverageData();
 
 function roundToTwoDecimalPlaces(number) {
     return Math.round(number * 100) / 100;
