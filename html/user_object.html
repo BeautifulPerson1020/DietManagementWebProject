@@ -4,7 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Object Control</title>
-    <link rel="stylesheet" href="/css/toolbar_style.css">
+    <!--    폰트-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Playball&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Jua&family=Playball&display=swap" rel="stylesheet">
+    <!--    폰트-->
+    <link rel="stylesheet" href="../css/common_elements.css">
     <link rel="stylesheet" href="/css/object_add_modal.css">
     <link rel="stylesheet" href="/css/object_style.css">
     <script defer rel="javascript" src="/js/object_option.js"></script>
@@ -16,16 +27,16 @@
     <div class="logo" onclick="redirectToMain()">
         <div class="playball-regular">Diet &nbsp;HARD</div>
     </div>
-    <div class="menu-item" onclick="redirectToMyPage()">마이페이지 </div>
-    <div class="menu-item" onclick="redirectToGoal()">목표관리</div>
-    <div class="menu-item" onclick="redirectToRecord()">기록 추가</div>
-    <div class="menu-item" onclick="redirectToFeedback()">피드백 </div>
-    <div class="menu-item" onclick="logout()">로그아웃</div>
+    <div class="ibm-plex-sans-kr-regular menu-item" onclick="redirectToMyPage()">마이페이지 </div>
+    <div class="ibm-plex-sans-kr-regular menu-item" onclick="redirectToGoal()">목표관리</div>
+    <div class="ibm-plex-sans-kr-regular menu-item" onclick="redirectToRecord()">기록 추가</div>
+    <div class="ibm-plex-sans-kr-regular menu-item" onclick="redirectToFeedback()">피드백 </div>
+    <div class="ibm-plex-sans-kr-regular menu-item" onclick="logout()">로그아웃</div>
 </div>
 <div id="gpt">
     <!-- 현재 목표 표시 -->
     <div class="goal-box">
-        <h2>현재 목표</h2>
+        <h2 class="jua-regular" style="font-weight: normal;">현재 목표</h2>
         <div id="current-goal">
 <!--             현재 목표가 있을 때 표시되는 내용-->
             <p id="current-goal-content">
@@ -33,7 +44,7 @@
             </p>
             <div class="object-modal" id="modalOn">
                 <div class="object-modal-body">
-                    <h2>목표 추가!!</h2>
+                    <h2 class="jua-regular">목표 추가!!</h2>
                     <div class="modal-content">
                         <label for="dDay"></label><input class="inputObject" id="dDay" type="text" placeholder="목적 기간">
                         <label for="goal"></label><input class="inputObject" id="goal" type="text" placeholder="사용 목적">
@@ -44,25 +55,25 @@
 <!--                        <br>목표 칼로리: 180,000kcal-->
 <!--                        <br>자금 : 20만원-->
                     </div>
-                    <button class="exit-object-modal">추가하기</button>
+                    <button class="mint_button ibm-plex-sans-kr-regular exit-object-modal">추가하기</button>
                 </div>
             </div>
-            <button class="btn-open-modal">현재 목표 추가</button>
+            <button class="mint_button ibm-plex-sans-kr-regular btn-open-modal">현재 목표 추가</button>
         </div>
     </div>
 
     <!-- 과거 목표들 표시 -->
     <div class="goal-box">
-        <h2>지난 목표</h2>
+        <h2 class="jua-regular" style="font-weight: normal;">지난 목표</h2>
         <div class="past-goals-container">
             <!-- 과거 목표 박스 -->
-            <div class="past-goal-box" id="past-goal-1" onclick="showObjectOptions(1)">
+            <div class="jua-regular past-goal-box" id="past-goal-1 " onclick="showObjectOptions(1)" style="font-weight: normal;">
                 <p><strong>기간 : 2024.02.01 - 2024.02.28</strong>&nbsp;&nbsp;&nbsp;&nbsp;목적 : 학기 준비용 자금 아끼기&nbsp;&nbsp;&nbsp;&nbsp;목표 칼로리: 180,000kcal&nbsp;&nbsp;&nbsp;&nbsp;자금 : 20만원&nbsp;&nbsp;&nbsp;&nbsp;달성률: 65%</p>
             </div>
-            <div class="past-goal-box" id="past-goal-2" onclick="showObjectOptions(2)">
+            <div class="jua-regular past-goal-box" id="past-goal-2" onclick="showObjectOptions(2)" style="font-weight: normal;">
                 <p><strong>기간 : 2024.01.03 - 2024.01.31</strong>&nbsp;&nbsp;&nbsp;&nbsp;목적 : 다이어트&nbsp;&nbsp;&nbsp;&nbsp;목표 칼로리: 70,000kcal&nbsp;&nbsp;&nbsp;&nbsp;자금 : 30만원&nbsp;&nbsp;&nbsp;&nbsp;달성률: 30%</p>
             </div>
-            <div class="past-goal-box" id="past-goal-3" onclick="showObjectOptions(3)">
+            <div class="jua-regular past-goal-box" id="past-goal-3" onclick="showObjectOptions(3)" style="font-weight: normal;">
                 <p><strong>기간 : 2023.12.24 - 2024.01.02</strong>&nbsp;&nbsp;&nbsp;&nbsp;목적 : 신년 데이트&nbsp;&nbsp;&nbsp;&nbsp;목표 칼로리: 15,000kcal&nbsp;&nbsp;&nbsp;&nbsp;자금 : 100만원&nbsp;&nbsp;&nbsp;&nbsp;달성률: 100%</p>
             </div>
             <!-- 추가적인 과거 목표들의 박스들은 여기에 추가 -->
