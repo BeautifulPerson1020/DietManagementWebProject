@@ -8,6 +8,21 @@ function openVerificationPopup() {
     var leftPosition = (screenWidth - popupWidth) / 2;
     var topPosition = (screenHeight - popupHeight) / 2;
 
+    // 사용자가 입력한 데이터 가져오기
+    var userId = document.getElementById('id').value;
+    var password = document.getElementById('password').value;
+    var email = document.getElementById('email').value;
+
+    // 데이터를 객체로 저장
+    var registerData = {
+        "user_id": userId,
+        "pw": password,
+        "email": email
+    };
+
+    // Local Storage에 데이터 저장
+    localStorage.setItem('registerData', JSON.stringify(registerData));
+
     window.open('verification.html', 'Verification', 'width='+popupWidth +',height=' + popupHeight + ', left=' + leftPosition + ', top=' + topPosition);
 }
 
@@ -71,6 +86,15 @@ function validateForm1() {
     return true;
 }
 function redirectToRegister_detail() {
+    var userData = {
+        "user_id": document.getElementById('id').value,
+        "pw": document.getElementById('password').value,
+
+    };
+
+    // JSON 데이터를 다음 페이지로 전달
+    localStorage.setItem('userData', JSON.stringify(userData));
+
     if (validateForm1()) {
         // 만약 폼이 유효하다면, homepage.html 로 이동
         window.location.href = 'register_detail.html';
@@ -78,11 +102,36 @@ function redirectToRegister_detail() {
 }
 
 function validateFormAndRedirect() {
-    // 폼 필드 유효성 검사
-    if (validateForm()) {
-        // 만약 폼이 유효하다면, homepage.html 로 이동
-        window.location.href = 'homepage.html';
-    }
+
+    // 사용자가 입력한 데이터 수집
+    var registerDetailData = {
+        age: document.getElementById('age').value,
+        gender: document.getElementById('gender').value,
+        weight: document.getElementById('weight').value,
+        height: document.getElementById('height').value,
+        weekly_exercise_time: document.getElementById('weekly_exercise_time').value,
+        activity_level: document.getElementById('activity_level').value,
+        goal: document.getElementById('goal').value
+    };
+
+    // JSON 형식으로 변환
+    var jsonData = JSON.stringify(registerDetailData);
+
+    // localStorage에서 registerData, registerDetailData, verificationData 가져오기
+    var registerData = JSON.parse(localStorage.getItem('registerData'));
+    var verificationData = JSON.parse(localStorage.getItem('verificationData'));
+
+    // userData에 모든 데이터를 병합
+    var userData = Object.assign({}, registerData, registerDetailData, verificationData);
+
+    // JSON 형식으로 변환
+    var userDataJson = JSON.stringify(userData);
+
+    // localStorage에 userData 저장
+    localStorage.setItem('userData', userDataJson);
+
+    // 회원가입 완료 페이지로 이동
+    location.href = '../html/homepage.html';
 }
 function isInteger(value) {
     return /^\d+$/.test(value);         // 문자열이 숫자로만 이루어져 있고, 문자열의 처음부터 끝까지가 숫자로만 구성
@@ -136,9 +185,23 @@ function showVerificationInputs() {
 }
 
 function verifyCode() {
+    // var verificationData = JSON.parse(localStorage.getItem('userData'));
+    // if (!verificationData) {
+    //     alert('Please fill out the registration form first.');
+    //     return;
+    // }
+
     var verificationCode = document.getElementById('verificationCode').value;
     var name = document.getElementById('name').value;
     var phoneNumber = document.getElementById('phoneNumber').value;
+
+    // 데이터를 객체로 저장
+    var verificationData = {
+        "name": name,
+        "phoneNumber": phoneNumber
+    };
+    // Local Storage에 데이터 저장
+    localStorage.setItem('verificationData', JSON.stringify(verificationData));
 
     // 입력된 값이 모두 채워져 있는지 확인
     if (!verificationCode || !name || !phoneNumber) {
@@ -160,40 +223,103 @@ function verifyCode() {
     // 여기에서 서버에 입력한 코드를 보내어 검증하고,
     // 검증이 성공하면 회원 가입을 완료하도록 구현 가능
 
-    // Verification 성공 시 버튼 색상 변경
-    setCookie('verified', 'true', 1);
+    // 가상의 검증 코드
+    // 실제로는 서버에 요청을 보내고, 서버에서 검증을 수행해야 합니다.
+    if (verificationCode === "1234") {
+        // 검증 성공 시 localStorage 에 userData 저장하고 회원가입 완료 페이지로 이동
+        localStorage.setItem('verificationData', JSON.stringify(verificationData));
+        window.close(); // 팝업창 닫기
+    } else {
+        alert('Verification code is incorrect. Please try again.');
+    }
 }
 
-// 쿠키 설정 함수
-function setCookie(name, value, days) {
-    var expires = "";
-    if (days) {
-        var date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        expires = "; expires=" + date.toUTCString();
+
+document.addEventListener('DOMContentLoaded', function() {
+    // 각 페이지에서 사용되는 데이터 키 정의
+    var storageKeys = {
+        register: 'registerData',
+        verification: 'verificationData',
+        registerDetail: 'registerDetailData'
+    };
+
+    // 현재 페이지의 URL을 기준으로 데이터 키를 선택
+    var currentPage = getCurrentPage();
+    var currentStorageKey = storageKeys[currentPage];
+
+    if (currentStorageKey) {
+        // 현재 페이지에서 사용되는 데이터 수집
+        var currentPageData = collectData(currentPage);
+
+        // 기존 데이터 불러오기
+        var existingData = JSON.parse(localStorage.getItem(currentStorageKey)) || {};
+
+        // 새로운 데이터와 기존 데이터 병합
+        var mergedData = Object.assign({}, existingData, currentPageData);
+
+        // 병합된 데이터를 로컬 스토리지에 저장
+        localStorage.setItem(currentStorageKey, JSON.stringify(mergedData));
     }
-    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+});
+
+
+// 현재 페이지의 URL을 기준으로 페이지 식별
+function getCurrentPage() {
+    var url = window.location.href;
+    if (url.includes('register_detail.html')) {
+        return 'registerDetail';
+    } else if (url.includes('verification.html')) {
+        return 'verification';
+    } else {
+        return 'register';
+    }
 }
 
-// 쿠키 가져오기 함수
-function getCookie(name) {
-    var nameEQ = name + "=";
-    var ca = document.cookie.split(';');
-    for (var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+// 각 페이지에서 필요한 데이터 수집
+function collectData(page) {
+    var data = {};
+    if (page === 'register') {
+        data.userData = {
+            id: document.getElementById('id').value,
+            password: document.getElementById('password').value,
+            confirmPassword: document.getElementById('confirmPassword').value,
+            email: document.getElementById('email').value
+        };
+    } else if (page === 'verification') {
+        data.verificationData = {
+            name: document.getElementById('name').value,
+            phoneNumber: document.getElementById('phoneNumber').value
+        };
+    } else if (page === 'registerDetail') {
+        data.registerDetailData = {
+            age: document.getElementById('age').value,
+            gender: document.getElementById('gender').value,
+            weight: document.getElementById('weight').value,
+            height: document.getElementById('height').value,
+            weekly_exercise_time: document.getElementById('weekly_exercise_time').value,
+            activity_level: document.getElementById('activity_level').value,
+            goal: document.getElementById('goal').value
+        };
     }
-    return null;
+    return data;
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    var verified = getCookie('verified');
-    if (verified === 'true') {
-        // Verify 버튼 색상 변경
-        var verifyButton = document.querySelector('.verify-button');
-        if (verifyButton) {
-            verifyButton.style.backgroundColor = 'red';
-        }
+    var currentPage = getCurrentPage();
+    var currentStorageKey;
+
+    if (currentPage === 'register') {
+        currentStorageKey = 'registerData';
+    } else if (currentPage === 'verification') {
+        currentStorageKey = 'verificationData';
+    } else if (currentPage === 'registerDetail') {
+        currentStorageKey = 'registerDetailData';
+    }
+
+    if (currentStorageKey) {
+        var currentPageData = collectData(currentPage);
+        var existingData = JSON.parse(localStorage.getItem(currentStorageKey)) || {};
+        var mergedData = Object.assign({}, existingData, currentPageData);
+        localStorage.setItem(currentStorageKey, JSON.stringify(mergedData));
     }
 });
