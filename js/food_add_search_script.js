@@ -51,6 +51,12 @@ function renderTable(page) {
             selectedFood = row.cells[0].innerText;
             console.log("id: " + row.cells[0].innerText);
         });
+        row.addEventListener('mouseenter', () => {
+            row.classList.add('table-active');
+        })
+        row.addEventListener('mouseleave', () => {
+            row.classList.remove('table-active');
+        })
         tbody.appendChild(row);
     }
 }
