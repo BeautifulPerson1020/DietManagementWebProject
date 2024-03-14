@@ -3,6 +3,77 @@ body {
     flex-direction: column;
 }
 
+.profile-section {
+    display: flex;
+    justify-content: space-around; /* 좌우 정렬 */
+    margin: 20px;
+    text-align: center;
+
+
+}
+
+#introductionTitle {
+    font-weight: bold;
+}
+
+
+.profile-container {
+    display: flex;
+    justify-content: space-around; /* 좌우 정렬 */
+    flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+
+}
+
+.profile-box#myPage {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 20px auto; /* 좌우 마진을 auto로 설정하여 가운데 정렬 */
+    flex-grow: 1; /* Allow boxes to grow to fill available space */
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+    box-shadow: 0px 4px 18.1px 2px rgba(0, 0, 0, 0.25);
+    text-align: center; /* 내부 텍스트를 가운데 정렬 */
+    flex-basis: 45%; /* Set the width to be 45% */
+}
+
+.profile-box {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 20px;
+    flex-grow: 1; /* Allow boxes to grow to fill available space */
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+    box-shadow: 0px 4px 18.1px 2px rgba(0, 0, 0, 0.25);
+
+}
+
+.profile-box#myPage {
+    flex-basis: 30%; /* Set the initial width to be 30% for My Page */
+    max-width: 30%; /* Limit the maximum width */
+}
+
+.profile-box#userInfo {
+    flex-basis: 70%; /* Set the initial width to be 70% for User Information */
+    max-width: 70%; /* Limit the maximum width */
+}
+
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+button {
+    padding: 6px 10px;
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+/* New CSS to display profile boxes side by side */
+.profile-box#myPage {
+    flex-basis: 45%; /* Set the width to be 45% */
+}
+
+
 .menu {
     display: flex;
     justify-content: space-between;
@@ -26,27 +97,18 @@ body {
     margin: 0 10px;
 }
 
-.profile-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
+
+
+.playball-regular {
+    font-family: "Playball", cursive;
+    font-weight: 400;
+    font-style: normal;
 }
 
-.profile-box {
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin: 20px;
+.menu-item:hover {
+    /*color: #ff5733; !* 텍스트 색상 변경 *!*/
+    background-color: #f5f5f5; /* 배경색 변경 */
+    transition: 0.3s; /* 부드러운 전환 효과 추가 */
+    font-weight: bold;
 }
 
-.button-container {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 10px;
-}
-
-button {
-    padding: 6px 10px;
-    margin-left: 10px;
-    font-size: 14px;
-}
