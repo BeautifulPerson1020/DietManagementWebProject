@@ -1,14 +1,17 @@
+/*
+//사용 안함 만약을 위해 일단은 삭제하지 않음
 const foodName = document.getElementById("foodName");
 const foodCalories = document.getElementById("foodCalories");
 const foodSugars = document.getElementById("foodSugars");
 const saveUserFood = document.getElementById("saveUserFood");
 const cancleCreate = document.getElementById("cancleCreate");
+const modalPopUp = document.getElementById("modalPopUp");
 
-/*const fs = require('fs');   //fs(file system)라는 패키지를 사용
+/!*const fs = require('fs');   //fs(file system)라는 패키지를 사용
 
 const foodData = fs.readFileSync('../json/food.json');
 
-console.log(foodData);  //Node.js 쓰고싶다*/
+console.log(foodData);  //Node.js 쓰고싶다*!/
 
 import userFood from "../json/user_created_food.json" assert{ type: "json"};
 
@@ -34,7 +37,7 @@ function createFood(){
     }
     else {
         if(confirm("저장하시겠습니까?")){
-            /*저장 코드*/
+            /!*저장 코드*!/
             userCreatedFood.user_food_id = userFood.length+1;
             userCreatedFood.user_food_name = foodName.value;
             userCreatedFood.user_food_calories = foodCalories.value;
@@ -42,27 +45,29 @@ function createFood(){
             userFood.push(userCreatedFood);
             console.log(userFood)
             alert("저장되었습니다")
-            location.href="../html/record_add_search.html";
+            modalPopUp.classList.remove('on');
+            /!*location.href="../html/record_add_search.html";*!/
         }
     }
 }
 
-/*
+/!*
 function saveFood(userFood){
     let fileSysObj = new ActiveXObject('Scripting.FileSystemObject')
     let fileSavePath = fileSysObj.CreateTextFile("../json/user_created_food.json", true);
     fileSavePath.write(JSON.stringify(userFood))
     fileSavePath.close();
 }
-*/
+*!/
 
 
 function createCancle(){
-    location.href="../html/record_add_search.html";
+    modalPopUp.classList.remove('on');
+    /!*location.href="../html/record_add_search.html";*!/
 }
 
 
-/* //업데이트 안되고 다운로드만 됨
+/!* //업데이트 안되고 다운로드만 됨
 const obj = { content: 'hello' }
 
 const str = JSON.stringify(obj);
@@ -78,4 +83,5 @@ tempLink.setAttribute('download', `filename.txt`);
 document.body.appendChild(tempLink);
 tempLink.click();
 document.body.removeChild(tempLink);
-window.URL.revokeObjectURL(blobURL);*/
+window.URL.revokeObjectURL(blobURL);*!/
+*/
