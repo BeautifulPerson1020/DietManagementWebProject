@@ -112,7 +112,6 @@ const popup = () => {
             let span = dateDiv.querySelector('span');
 
             // console.log(span.innerHTML.toString());
-            console.log(fetchedDataArr);
             // span 요소의 클래스에 따라 다른 동작 수행
             // 버튼클릭시 JSON 을 fetch함
             if (span.classList.contains('this')) {
@@ -152,7 +151,7 @@ const popup = () => {
                             }
 
                         });
-
+                        console.log(fetchedDataArr);
                         // 데이터를 처리하는 부분을 이곳으로 이동
                         fetchedDataArr.forEach(item => {
                             totalCalories += item.daily_calories_amount;
