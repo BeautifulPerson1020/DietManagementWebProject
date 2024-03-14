@@ -1,0 +1,15 @@
+{
+  "user_id": "john_doe",
+  "pw": "secure_password",
+  "name" : "서성우",
+  "email": "ssungwoo7180@naver.com",
+  "phone": "010-2472-8269",
+  "age": "25",
+  "gender": "male",
+  "weight": "70",
+  "height": "175",
+  "activity_level": "hard",
+  "weekly_exercise_time": "10",
+  "goal": "Build muscle"
+}
+

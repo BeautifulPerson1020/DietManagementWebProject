@@ -29,9 +29,10 @@
         }
 
         input, select {
-            width: calc(100% - 16px); /* 100%에서 패딩을 빼서 조절 */
+            width: calc(70% - 16px); /* 100%에서 패딩을 빼서 조절 */
             padding: 8px;
             box-sizing: border-box;
+            margin-bottom: 5px; /* 여백 조절 */
         }
 
         .dropdown-container {
@@ -41,7 +42,8 @@
         }
 
         .dropdown-container select {
-            width: 70%;
+            width: calc(70% - 16px); /* 드랍다운 너비 조절 */
+            margin-bottom: 0; /* 여백 제거 */
         }
 
         .unit-label {
@@ -70,7 +72,7 @@
 <body>
 <div class="register-box">
     <h2>Register</h2><br><br>
-    <form action="#" method="post">
+    <form action="#" method="post" onsubmit="return validateForm()">
 
         <div class="input-container">
             <label for="age">Age:</label>
@@ -98,16 +100,33 @@
         </div>
 
         <div class="input-container">
-            <label for="athleticExperience">Athletic Experience:</label>
-            <input type="text" id="athleticExperience" name="athleticExperience" required>
+            <label for="weekly_exercise_time">Weekly Exercise Time:</label>
+            <input type="text" id="weekly_exercise_time" name="weekly_exercise_time" placeholder="e.g., 10">
+            <span class="unit-label">hours</span>
+        </div>
+
+        <div class="input-container">
+            <label for="activity_level">Activity Level:</label>
+            <select id="activity_level" name="activity_level" required>
+                <option value="sedentary">정주</option>
+                <option value="low_active">낮은 활동적</option>
+                <option value="active">활동적</option>
+                <option value="very_active">매우 활동적</option>
+            </select>
         </div>
 
         <div class="input-container">
             <label for="goal">Goal:</label>
-            <input type="text" id="goal" name="goal" required>
+            <select id="goal" name="goal">
+                <option value="1">체중 증가</option>
+                <option value="2">느린 체중 증가</option>
+                <option value="3">현재 체중 유지하기</option>
+                <option value="4">느린 체중 감소</option>
+                <option value="5">체중 감소</option>
+            </select>
         </div>
 
-        <button type="button" class="form-next-button">Next</button>
+        <button type="button" class="form-next-button" onclick="validateFormAndRedirect()">Next</button>
 
     </form>
     <script defer src="../js/register.js"></script>
