@@ -35,33 +35,33 @@
     <div class="profile-box" id="myPage">
         <h2 class="jua-regular">My Page</h2>
         <img src="../img/puppy.jpg" alt="User Photo" width="100" id="userPhoto"><br>
-        <button class="mint_button ibm-plex-sans-kr-regular" onclick="changePhoto()">Change Photo</button><br><br>
-        <p class="jua-regular" id="introductionTitle">Introduction</p>
-        <p class="ibm-plex-sans-kr-regular" id="introduction"> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <button class="mint_button ibm-plex-sans-kr-regular" onclick="editIntroduction()">Edit Introduction</button><br><br>
-        <p class="jua-regular">SNS Links: <a href="#" id="facebookLink">Facebook</a>, <a href="#" id="twitterLink">Twitter</a>, <a href="#" id="instagramLink">Instagram</a></p>
-        <button class="mint_button ibm-plex-sans-kr-regular" onclick="editLinks()">Edit Links</button>
+        <button class="mint_button ibm-plex-sans-kr-regular" onclick="changePhoto()">프로필사진 변경</button><br><br>
+        <p class="jua-regular" id="introductionTitle">자기소개</p>
+        <p class="ibm-plex-sans-kr-regular" id="introduction">저는 삼육대학교에 재학중인 서성우라고 합니다.</p>
+        <button class="mint_button ibm-plex-sans-kr-regular" onclick="editIntroduction()">자기소개글 변경</button><br><br>
+        <p class="jua-regular">SNS 링크 : <a href="#" id="facebookLink">Facebook</a>, <a href="#" id="twitterLink">Twitter</a>, <a href="#" id="instagramLink">Instagram</a></p>
+        <button class="mint_button ibm-plex-sans-kr-regular" onclick="editLinks()">SNS링크 변경</button>
     </div>
 
     <div class="profile-box">
         <h2 class="jua-regular">User Information</h2>
-        <p class="jua-regular">name: <span id="name"></span></p>
-        <p class="jua-regular">id: <span id="user_id"></span></p>
-        <p class="jua-regular">password: <span id="pw"></span></p>
-        <p class="jua-regular">Age: <span id="age"></span></p>
-        <p class="jua-regular">Height: <span id="height"></span></p>
-        <p class="jua-regular">Weight: <span id="weight"></span></p>
-        <p class="jua-regular">Goal Weight: <span id="goal_weight"></span></p>
-        <p class="jua-regular">Email: <span id="email"></span></p>
-        <p class="jua-regular">Phone: <span id="phone"></span></p>
-        <p class="jua-regular">Gender: <span id="gender"></span></p>
-        <p class="jua-regular">activity level: <span id="activity_level"></span></p>
-        <p class="jua-regular">Weekly Exercise Time: <span id="weekly_exercise_time"></span></p>
+        <p class="jua-regular">이름: <span id="name"></span></p>
+        <p class="jua-regular">아이디 : <span id="user_id"></span></p>
+        <p class="jua-regular">비밀번호 : <span id="pw"></span></p>
+        <p class="jua-regular">나이 : <span id="age"></span></p>
+        <p class="jua-regular">키 : <span id="height"></span></p>
+        <p class="jua-regular">몸무게 : <span id="weight"></span></p>
+        <p class="jua-regular">목표 : <span id="goal_weight"></span></p>
+        <p class="jua-regular">이메일 : <span id="email"></span></p>
+        <p class="jua-regular">전화번호 : <span id="phone"></span></p>
+        <p class="jua-regular">성별 : <span id="gender"></span></p>
+        <p class="jua-regular">활동량 : <span id="activity_level"></span></p>
+        <p class="jua-regular">주간운동량: <span id="weekly_exercise_time"></span></p>
 
 
         <div class="button-container">
-            <button class="mint_button ibm-plex-sans-kr-regular" onclick="withdrawal()" id="withdrawalBtn">Withdrawal</button>
-            <button class="mint_button ibm-plex-sans-kr-regular" onclick="updateInfo()">Update Information</button>
+            <button class="mint_button ibm-plex-sans-kr-regular" onclick="withdrawal()" id="withdrawalBtn">회원탈퇴</button>
+            <button class="mint_button ibm-plex-sans-kr-regular" onclick="updateInfo()">유저정보 변경</button>
         </div>
     </div>
 </div>
@@ -105,12 +105,12 @@
     function initiateWithdrawal() {
         isWithdrawalMode = true;
         alert("회원 탈퇴 신청이 완료되었습니다. 7일이내로 탈퇴취소 신청이 가능합니다.");
-        document.getElementById('withdrawalBtn').textContent = 'cancel Withdrawal';
+        document.getElementById('withdrawalBtn').textContent = '회원탈퇴 취소';
     }
 
     function cancelWithdrawal() {
         isWithdrawalMode = false;
-        document.getElementById('withdrawalBtn').textContent = 'Withdrawal';
+        document.getElementById('withdrawalBtn').textContent = '회원탈퇴';
     }
 
     function withdrawal() {
