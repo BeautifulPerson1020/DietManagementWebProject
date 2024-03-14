@@ -1,52 +1,82 @@
 body {
     display: flex;
     flex-direction: column;
+    margin : 0px;
 }
+/*body{*/
+/*    -ms-overflow-style: none;*/
+/*}*/
 
-.menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100px;
-    padding: 0 20px;
-    background: #FFFFFF;
-    box-shadow: 0px 4px 18.1px 2px rgba(0, 0, 0, 0.25);
-    font-size: 2vw;
+/*::-webkit-scrollbar {*/
+/*    display: none;*/
+/*} 스크롤 죽이는 코드*/
+/* 왠진 모르겠는데 마진이 body에 8px씩 할당되 있었어.*/
+
+h2 {
+    font-size : 2rem;
 }
-
-.logo {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-}
-
-.menu-item {
-    cursor: pointer;
-    font-size: 2vw;
-    margin: 0 10px;
-}
-
 .profile-section {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: space-around; /* 좌우 정렬 */
     margin: 20px;
+    text-align: center;
+
+
+}
+
+#introductionTitle {
+    font-weight: bold;
+}
+
+
+.profile-container {
+    display: flex;
+    justify-content: space-around; /* 좌우 정렬 */
+    flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+
+}
+
+.profile-box#myPage {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 20px auto; /* 좌우 마진을 auto로 설정하여 가운데 정렬 */
+    flex-grow: 1; /* Allow boxes to grow to fill available space */
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+    box-shadow: 0px 4px 18.1px 2px rgba(0, 0, 0, 0.25);
+    text-align: center; /* 내부 텍스트를 가운데 정렬 */
+    flex-basis: 45%; /* Set the width to be 45% */
 }
 
 .profile-box {
     border: 1px solid #ccc;
-    padding: 20px;
-    margin: 20px;
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin: 1.5rem;
+    flex-grow: 1; /* Allow boxes to grow to fill available space */
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+    box-shadow: 0px 4px 18.1px 2px rgba(0, 0, 0, 0.25);
+
 }
 
+.profile-box#myPage {
+    margin: 1.5rem;
+    max-width: 30%; /* Limit the maximum width */
+}
+
+.profile-box#userInfo {
+    max-width: 70%; /* Limit the maximum width */
+}
+
+.mint_button:nth-child(2) {
+    margin-left: 1rem;
+}
 .button-container {
     display: flex;
     justify-content: flex-end;
     margin-top: 10px;
 }
 
-button {
-    padding: 6px 10px;
-    margin-left: 10px;
-    font-size: 14px;
+/* New CSS to display profile boxes side by side */
+.profile-box#myPage {
+    flex-basis: 45%; /* Set the width to be 45% */
 }

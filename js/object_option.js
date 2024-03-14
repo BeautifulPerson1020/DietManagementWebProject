@@ -1,19 +1,18 @@
-function redirectToGoalAdd() {
-    const currentGoalContent = document.getElementById('current-goal-content').innerHTML.trim();
-
-    if (currentGoalContent) {
-        // 현재 목표가 이미 존재하는 경우 경고창 표시
-        alert("이미 목표가 존재합니다.");
-    } else {
-        // 현재 목표가 존재하지 않는 경우, 추가할 내용 입력 받기
-        const newGoalContent = prompt("현재 목표를 추가하세요:");
-
-        if (newGoalContent) {
-            // 사용자가 내용을 입력한 경우, 해당 내용을 current-goal-content 의 내용으로 설정
-            document.getElementById('current-goal-content').innerHTML = newGoalContent;
-        }
-    }
-}
+// function redirectToGoalAdd() {
+//     const currentGoalContent = document.getElementById('current-goal-content').innerHTML.trim();
+//
+//     if (currentGoalContent) {
+//         // 현재 목표가 이미 존재하는 경우 경고창 표시
+//         alert("이미 목표가 존재합니다.");
+//     } else {
+//         // 현재 목표가 존재하지 않는 경우, 추가할 내용 입력 받기
+//         const newGoalContent = prompt("현재 목표를 추가하세요:");
+//         if (newGoalContent) {
+//             // 사용자가 내용을 입력한 경우, 해당 내용을 current-goal-content 의 내용으로 설정
+//             document.getElementById('current-goal-content').innerHTML = newGoalContent;
+//         }
+//     }
+// }
 
 function showObjectOptions(index) {
     // 지난 목표를 클릭하여 옵션 표시 (예: 상세보기, 저장, 공유)
@@ -26,7 +25,7 @@ function showObjectOptions(index) {
             alert(pastGoalContent); // 예시로 각 목표의 내용을 알림창으로 표시
             break;
         case '2' :
-            // 컴퓨터에 탐색기가 켜지며 저장하기 방식이 나타나도록 해줘. 저장 내용은 클릭된 div 의 컨텐츠를 .txt 형식으로 저장될 것.
+            // 컴퓨터에 탐색기가 켜지며 저장하기 방식. 저장 내용은 클릭된 div 의 컨텐츠를 .txt 형식
             const pastGoalContentToSave = document.getElementById(`past-goal-${index}`).innerText;
             saveToFile(pastGoalContentToSave); // 예시로 저장 함수 호출
             break;

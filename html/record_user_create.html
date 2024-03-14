@@ -1,3 +1,5 @@
+<!--
+&lt;!&ndash;사용 안함 만약을 위해 일단은 삭제하지 않음&ndash;&gt;
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +16,8 @@
 </head>
 <body>
 <script defer src="../js/toolbar_script.js"></script>
-<script defer src="../js/food_user_script.js"></script>
+<script defer src="../js/food_user_script.js" type="module"></script>
+
 <div class="menu" id="menu">
     <div class="logo" onclick="redirectToMain()">
         <div class="playball-regular">Diet &nbsp;HARD</div>
@@ -26,7 +29,7 @@
     <div class="menu-item" onclick="logout()">로그아웃</div>
 </div>
 
-<div class="col-xl-8 position-absolute start-50 translate-middle-x row g-3">
+<div class="col-xl-8 position-absolute start-50 translate-middle-x row g-3 mt-3">
     <div class="col-sm-4 col-md-4">
         <input class="form-control form-control-lg" id="foodName" type="text" placeholder="음식이름">
     </div>
@@ -38,10 +41,10 @@
     </div>
     <div class="row g-3 justify-content-end">
         <div class="col-auto">
-            <button class="btn btn-primary px-4" onclick="createFood()">저장하기</button>
-            <button class="btn btn-phoenix-primary px-4" onclick="createCancle()">취소하기</button>
+            <button class="btn btn-primary px-4" id="saveUserFood">저장하기</button>
+            <button class="btn btn-phoenix-primary px-4" id="cancleCreate">취소하기</button>
         </div>
     </div>
 </div>
 </body>
-</html>
+</html>-->

@@ -3,79 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--    폰트-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Playball&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Jua&family=Playball&display=swap" rel="stylesheet">
+    <!--    폰트-->
+    <link rel="stylesheet" href="../css/common_elements.css">
     <link rel="stylesheet" href="../css/my_page_css.css">
     <title>Your Web Page Title</title>
-
-
 </head>
 <body>
+<script defer src="../js/toolbar_script.js"></script>
 <div class="menu" id="menu">
     <div class="logo" onclick="redirectToMain()">
         <div class="playball-regular">Diet &nbsp;HARD</div>
     </div>
-    <div class="menu-item" onclick="redirectToMyPage()">마이페이지 </div>
-    <div class="menu-item" onclick="redirectToGoal()">목표관리</div>
-    <div class="menu-item" onclick="redirectToRecord()">기록 추가</div>
-    <div class="menu-item" onclick="redirectToFeedback()">피드백 </div>
-    <div class="menu-item" onclick="logout()">로그아웃</div>
+    <div class="ibm-plex-sans-kr-regular menu-item" onclick="redirectToMyPage()">마이페이지 </div>
+    <div class="ibm-plex-sans-kr-regular menu-item" onclick="redirectToGoal()">목표관리</div>
+    <div class="ibm-plex-sans-kr-regular menu-item" onclick="redirectToRecord()">기록 추가</div>
+    <div class="ibm-plex-sans-kr-regular menu-item" onclick="redirectToFeedback()">피드백 </div>
+    <div class="ibm-plex-sans-kr-regular menu-item" onclick="logout()">로그아웃</div>
 </div>
 
-<div class="profile-box" id="myPage">
-    <h2>My Page</h2>
-    <img src="user_photo.jpg" alt="User Photo" width="100">
-    <p id="introduction">Introduction: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    <p>SNS Links: <a href="#" id="facebookLink">Facebook</a>, <a href="#" id="twitterLink">Twitter</a>, <a href="#" id="instagramLink">Instagram</a></p>
-</div>
+<div class="profile-container">
+    <div class="profile-box" id="myPage">
+        <h2 class="jua-regular">My Page</h2>
+        <img src="../img/puppy.jpg" alt="User Photo" width="100" id="userPhoto"><br>
+        <button class="mint_button ibm-plex-sans-kr-regular" onclick="changePhoto()">프로필사진 변경</button><br><br>
+        <p class="jua-regular" id="introductionTitle">자기소개</p>
+        <p class="ibm-plex-sans-kr-regular" id="introduction">저는 삼육대학교에 재학중인 서성우라고 합니다.</p>
+        <button class="mint_button ibm-plex-sans-kr-regular" onclick="editIntroduction()">자기소개글 변경</button><br><br>
+        <p class="jua-regular">SNS 링크 : <a href="#" id="facebookLink">Facebook</a>, <a href="#" id="twitterLink">Twitter</a>, <a href="#" id="instagramLink">Instagram</a></p>
+        <button class="mint_button ibm-plex-sans-kr-regular" onclick="editLinks()">SNS링크 변경</button>
+    </div>
+
+    <div class="profile-box">
+        <h2 class="jua-regular">User Information</h2>
+        <p class="jua-regular">이름: <span id="name"></span></p>
+        <p class="jua-regular">아이디 : <span id="user_id"></span></p>
+        <p class="jua-regular">비밀번호 : <span id="pw"></span></p>
+        <p class="jua-regular">나이 : <span id="age"></span></p>
+        <p class="jua-regular">키 : <span id="height"></span></p>
+        <p class="jua-regular">몸무게 : <span id="weight"></span></p>
+        <p class="jua-regular">목표 : <span id="goal_weight"></span></p>
+        <p class="jua-regular">이메일 : <span id="email"></span></p>
+        <p class="jua-regular">전화번호 : <span id="phone"></span></p>
+        <p class="jua-regular">성별 : <span id="gender"></span></p>
+        <p class="jua-regular">활동량 : <span id="activity_level"></span></p>
+        <p class="jua-regular">주간운동량: <span id="weekly_exercise_time"></span></p>
 
 
-
-<div class="profile-box">
-    <h2>User Information</h2>
-    <p>Name: <span id="name">John Doe</span></p>
-    <p>Age: <span id="age">25</span></p>
-    <p>Height: <span id="height">175 cm</span></p>
-    <p>Weight: <span id="weight">70 kg</span></p>
-    <p>Goal Weight: <span id="goal_weight">65 kg</span></p> <!-- Added line for goal weight -->
-    <p>Email: <span id="email">john@example.com</span></p>
-    <p>Phone: <span id="phone">123-456-7890</span></p>
-    <p>Lifestyle Habit: <span id="lifestyle_habit">Active</span></p>
-    <p>Weekly Exercise Time: <span id="weekly_exercise_time">3 hours</span></p>
-
-    <!-- Button Container -->
-    <div class="button-container">
-        <button onclick="withdrawal()" id="withdrawalBtn">Withdrawal</button>
-        <button onclick="updateInfo()">Update Information</button>
+        <div class="button-container">
+            <button class="mint_button ibm-plex-sans-kr-regular" onclick="withdrawal()" id="withdrawalBtn">회원탈퇴</button>
+            <button class="mint_button ibm-plex-sans-kr-regular" onclick="updateInfo()">유저정보 변경</button>
+        </div>
     </div>
 </div>
 
-</body>
 <script>
-    var isWithdrawalMode = false; // Flag to track withdrawal mode
-    var dummyPassword = "1234"; // Dummy password
+    var isWithdrawalMode = false;
 
     function redirectToMain() {
-        window.location.href = 'homepage.html';
+        window.location.href = 'toolbar.html';
     }
 
-    function redirectToMyPage() {
-        window.location.href = 'my_page.html';
-    }
-    function redirectToGoal() {
-        window.location.href = 'user_object.html';
-    }
-    function redirectToRecord() {
-        window.location.href = 'record_main.html';
-    }
-    function redirectToFeedback() {
-        window.location.href = 'feedback.html';
-    }
     function logout() {
         window.location.href = 'login.html';
     }
-    function toggleMenu() {
-        const menu = document.getElementById('menu');
-        menu.classList.toggle('show-mobile');
-    }
+
     function openGoalWeightPrompt() {
         var goalWeight = prompt("Enter your goal weight:");
         if (goalWeight !== null) {
@@ -85,41 +86,40 @@
 
     function toggleWithdrawal() {
         if (isWithdrawalMode) {
-            var password = prompt("Enter your password to cancel withdrawal:");
-            if (password === dummyPassword) {
+            const password = prompt("회원탈퇴 취소를 위해 비밀번호를 입력해주세요:");
+            if (password === getPassword()) {
                 cancelWithdrawal();
             } else {
-                alert("Incorrect password. Withdrawal cancellation failed.");
+                alert("옮바르지 않은 비밀번호입니다. 회원탈퇴 취소 실패");
             }
         } else {
-            var password = prompt("Enter your password to confirm withdrawal:");
-            if (password === dummyPassword) {
+            const password = prompt("회원탈퇴를 위한 비밀번호를 입력해주세요:");
+            if (password === getPassword()) {
                 initiateWithdrawal();
             } else {
-                alert("Incorrect password. Withdrawal failed.");
+                alert("옮바르지 않은 비밀번호입니다. 회원탈퇴 실패");
             }
         }
     }
 
     function initiateWithdrawal() {
         isWithdrawalMode = true;
-        alert("Withdrawal initiated. Click the withdrawal button again to confirm.");
-        document.getElementById('withdrawalBtn').textContent = 'Confirm Withdrawal';
+        alert("회원 탈퇴 신청이 완료되었습니다. 7일이내로 탈퇴취소 신청이 가능합니다.");
+        document.getElementById('withdrawalBtn').textContent = '회원탈퇴 취소';
     }
 
     function cancelWithdrawal() {
         isWithdrawalMode = false;
-        alert("Withdrawal canceled.");
-        document.getElementById('withdrawalBtn').textContent = 'Withdrawal';
+        document.getElementById('withdrawalBtn').textContent = '회원탈퇴';
     }
 
     function withdrawal() {
         if (isWithdrawalMode) {
-            var password = prompt("Enter your password to cancel account withdrawal :");
-            if (password === dummyPassword) {
+            var password = prompt("회원탈퇴 취소를 위해 비밀번호를 입력해주세요 :");
+            if (password === getPassword()) {
                 handleWithdrawal();
             } else {
-                alert("Incorrect password. Withdrawal failed.");
+                alert("옮바르지 않은 비밀번호입니다. 회원탈퇴 취소 실패.");
             }
         } else {
             toggleWithdrawal();
@@ -127,38 +127,115 @@
     }
 
     function handleWithdrawal() {
-
-        alert("Account withdrawal cancellation completed");
+        alert("회원 탈퇴 취소 신청이 완료되었습니다.");
         cancelWithdrawal();
-
     }
 
     function updateInfo() {
-        var password = prompt("Enter your password:");
-        if (password === dummyPassword) {
-            var newName = prompt("Enter new name:");
-            var newAge = prompt("Enter new age:");
-            var newHeight = prompt("Enter new height:");
-            var newWeight = prompt("Enter new weight:");
-            var newEmail = prompt("Enter new email:");
-            var newPhone = prompt("Enter new phone number:");
-            var newLifestyleHabit = prompt("Enter new lifestyle habit:");
-            var newWeeklyExerciseTime = prompt("Enter new weekly exercise time:");
-
-            document.getElementById("name").textContent = newName;
-            document.getElementById("age").textContent = newAge;
-            document.getElementById("height").textContent = newHeight;
-            document.getElementById("weight").textContent = newWeight;
-            document.getElementById("email").textContent = newEmail;
-            document.getElementById("phone").textContent = newPhone;
-            document.getElementById("lifestyle_habit").textContent = newLifestyleHabit;
-            document.getElementById("weekly_exercise_time").textContent = newWeeklyExerciseTime;
-
-            alert("Information updated successfully!");
+        var password = prompt("비밀번호를 입력해주세요:");
+        if (password === getPassword()) {
+            // 이 부분에서 아무 작업도 하지 않음
         } else {
             alert("Incorrect password. Please try again.");
         }
     }
 
+    function changePhoto() {
+        var newPhoto = prompt("Enter the URL of the new photo:");
+        if (newPhoto) {
+            document.getElementById("userPhoto").src = newPhoto;
+        }
+    }
+
+    function editIntroduction() {
+        var newIntroduction = prompt("Enter your new introduction:");
+        if (newIntroduction) {
+            document.getElementById("introduction").innerText = "Introduction: " + newIntroduction;
+        }
+    }
+
+    function editLinks() {
+        var newFacebookLink = prompt("Enter your new Facebook link:");
+        if (newFacebookLink) {
+            document.getElementById("facebookLink").href = newFacebookLink;
+        }
+
+        var newTwitterLink = prompt("Enter your new Twitter link:");
+        if (newTwitterLink) {
+            document.getElementById("twitterLink").href = newTwitterLink;
+        }
+
+        var newInstagramLink = prompt("Enter your new Instagram link:");
+        if (newInstagramLink) {
+            document.getElementById("instagramLink").href = newInstagramLink;
+        }
+    }
+
+    // JSON 파일에서 유저 정보를 가져오는 함수
+    function getUserInfo() {
+        // JSON 파일 경로
+        var jsonFile = '../json/user.json'; // 상위 폴더에서 json 폴더 안의 user.json 파일을 참조하도록 경로 설정
+
+
+        // AJAX를 이용하여 JSON 파일 가져오기
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', jsonFile, true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    // JSON 파일을 객체로 파싱
+                    var userInfo = JSON.parse(xhr.responseText);
+                    // 유저 정보를 HTML에 적용
+                    displayUserInfo(userInfo);
+                } else {
+                    console.error('Failed to fetch user information');
+                }
+            }
+        };
+        xhr.send();
+    }
+
+    function getPassword() {
+        // JSON 파일 경로
+        var jsonFile = '../json/user.json'; // 상위 폴더에서 json 폴더 안의 user.json 파일을 참조하도록 경로 설정
+
+        // AJAX를 이용하여 JSON 파일 가져오기
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', jsonFile, false); // 동기적으로 가져오기
+        xhr.send();
+
+        if (xhr.status === 200) {
+            // JSON 파일을 객체로 파싱
+            var userInfo = JSON.parse(xhr.responseText);
+            // 유저 정보에서 비밀번호 반환
+            return userInfo.pw;
+        } else {
+            console.error('Failed to fetch user information');
+            return null;
+        }
+    }
+
+
+    // 유저 정보를 HTML에 적용하는 함수
+    function displayUserInfo(userInfo) {
+        document.getElementById('name').innerText = userInfo.name;
+        document.getElementById('pw').innerText = userInfo.pw;
+        document.getElementById('user_id').innerText = userInfo.user_id;
+        document.getElementById('age').innerText = userInfo.age;
+        document.getElementById('height').innerText = userInfo.height + ' cm';
+        document.getElementById('weight').innerText = userInfo.weight + ' kg';
+        document.getElementById('goal_weight').innerText = userInfo.goal;
+        document.getElementById('email').innerText = userInfo.email;
+        document.getElementById('phone').innerText = userInfo.phone;
+        document.getElementById('gender').innerText = userInfo.gender;
+        document.getElementById('activity_level').innerText = userInfo.activity_level;
+        document.getElementById('weekly_exercise_time').innerText = userInfo.weekly_exercise_time + ' hours';
+    }
+
+    // 페이지가 로드될 때 유저 정보를 가져옴
+    window.onload = function() {
+        getUserInfo();
+    };
 </script>
+</body>
 </html>

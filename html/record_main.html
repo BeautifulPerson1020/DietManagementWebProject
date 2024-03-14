@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Record Main</title>
+    <!--    폰트-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Playball&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Jua&family=Playball&display=swap" rel="stylesheet">
+    <!--    폰트-->
+    <link rel="stylesheet" href="../css/common_elements.css">
+    <link rel="stylesheet" href="../css/record_style.css">
     <link crossorigin="anonymous"
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
@@ -11,8 +24,6 @@
     <script crossorigin="anonymous"
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="../css/record_style.css">
-    <link rel="stylesheet" href="../css/toolbar_style.css">
 </head>
 <body onload="showDay()">
 <script defer src="../js/record_main_script.js"></script>
@@ -22,61 +33,28 @@
     <div class="logo" onclick="redirectToMain()">
         <div class="playball-regular">Diet &nbsp;HARD</div>
     </div>
-    <div class="menu-item" onclick="redirectToMyPage()">마이페이지 </div>
-    <div class="menu-item" onclick="redirectToGoal()">목표관리</div>
-    <div class="menu-item" onclick="redirectToRecord()">기록 추가</div>
-    <div class="menu-item" onclick="redirectToFeedback()">피드백 </div>
-    <div class="menu-item" onclick="logout()">로그아웃</div>
+    <div class="ibm-plex-sans-kr-regular menu-item " onclick="redirectToMyPage()">마이페이지 </div>
+    <div class="ibm-plex-sans-kr-regular menu-item" onclick="redirectToGoal()">목표관리</div>
+    <div class="ibm-plex-sans-kr-regular menu-item" onclick="redirectToRecord()">기록 추가</div>
+    <div class="ibm-plex-sans-kr-regular menu-item" onclick="redirectToFeedback()">피드백 </div>
+    <div class="ibm-plex-sans-kr-regular menu-item" onclick="logout()">로그아웃</div>
 </div>
 
 <div class="container-xll record-list" id="recordList">
-    <div id="today"></div>  <!--body에 onload사용-->
+    <div class="jua-regular" id="today"></div>  <!--body에 onload사용-->
     <div class="row justify-content-end">
-        <button class="btn px-4 col-sm-1" onclick="goAddSearch()">Add</button>
+        <button class="btn px-4 col-sm-1" onclick="goAddSearch()"><div class="ibm-plex-sans-kr-regular">Add</div></button>
     </div>
     <ul class="list-group">
         <li class="list-group-item">
             <div class="row align-items-center">
                 <div class="container px-4 py-5">
-                    <h2 class="pb-2">아침</h2>
+                    <h2 class="pb-2 jua-regular">아침</h2>
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
                         <div class="col d-flex align-items-start">
                             <div>
-                                <h4 class="fw-bold mb-0">Featured title</h4>
-                                <p>Paragraph of text beneath the heading to explain the heading.</p>
-                            </div>
-                        </div>
-                        <div class="col d-flex align-items-start">
-                            <div>
-                                <h4 class="fw-bold mb-0">Featured title</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    Dolore magnam necessitatibus neque, nobis omnis placeat repellendus.
-                                    A ab cupiditate dolor, dolores, ipsa laudantium minus modi nulla praesentium sequi, tempora voluptatem?</p>
-                            </div>
-                        </div>
-                        <div class="col d-flex align-items-start">
-                            <div>
-                                <h4 class="fw-bold mb-0">Featured title</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    Accusantium aliquid dicta fugiat ipsam ipsum mollitia optio recusandae rem repudiandae!
-                                    Accusamus ad atque consectetur itaque laudantium, molestiae possimus quas sunt vero.</p>
-                            </div>
-                        </div>
-                        <div class="col d-flex align-items-start">
-                            <div>
-                                <h4 class="fw-bold mb-0">Featured title</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    A accusamus consequatur consequuntur doloremque error,
-                                    id illum pariatur praesentium quidem repellat repellendus sint vero.
-                                    Ipsum placeat, sint! Aliquid excepturi perferendis quidem.</p>
-                            </div>
-                        </div>
-                        <div class="col d-flex align-items-start">
-                            <div>
-                                <h4 class="fw-bold mb-0">Featured title</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    Alias atque, corporis dolorum enim est eum exercitationem,
-                                    explicabo inventore magnam minus modi nam officia omnis praesentium rem repellat sequi sit veniam.</p>
+                                <h3 class="jua-regular mb-0">음식이름</h3>
+                                <p class="ibm-plex-sans-kr-regular">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dignissimos enim in molestiae! Corporis cum distinctio facilis fuga minima repudiandae sint. Architecto consectetur dolor doloremque eaque ex placeat ratione sapiente.</p>
                             </div>
                         </div>
                     </div>
@@ -86,12 +64,12 @@
         <li class="list-group-item">
             <div class="row align-items-center">
                 <div class="container px-4 py-5">
-                    <h2 class="pb-2">점심</h2>
+                    <h2 class="pb-2 jua-regular">점심</h2>
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
                         <div class="col d-flex align-items-start">
                             <div>
-                                <h4 class="fw-bold mb-0">Featured title</h4>
-                                <p>Paragraph of text beneath the heading to explain the heading.</p>
+                                <h3 class="jua-regular mb-0">음식이름</h3>
+                                <p class="ibm-plex-sans-kr-regular">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet asperiores aspernatur beatae cupiditate, doloremque dolores enim incidunt inventore ipsa natus nobis nulla officiis quaerat reiciendis rem tempore veritatis voluptates.</p>
                             </div>
                         </div>
                     </div>
@@ -101,12 +79,12 @@
         <li class="list-group-item">
             <div class="row align-items-center">
                 <div class="container px-4 py-5">
-                    <h2 class="pb-2">저녁</h2>
+                    <h2 class="pb-2 jua-regular">저녁</h2>
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
                         <div class="col d-flex align-items-start">
                             <div>
-                                <h4 class="fw-bold mb-0">Featured title</h4>
-                                <p>Paragraph of text beneath the heading to explain the heading.</p>
+                                <h3 class="jua-regular mb-0">음식이름</h3>
+                                <p class="ibm-plex-sans-kr-regular">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi fugiat minus modi nemo, porro quaerat reprehenderit velit. Commodi deserunt eos esse ex, explicabo, illo laudantium sunt ullam velit veritatis voluptatibus?</p>
                             </div>
                         </div>
                     </div>
@@ -116,12 +94,12 @@
         <li class="list-group-item">
             <div class="row align-items-center">
                 <div class="container px-4 py-5">
-                    <h2 class="pb-2">간식</h2>
+                    <h2 class="pb-2 jua-regular">간식</h2>
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
                         <div class="col d-flex align-items-start">
                             <div>
-                                <h4 class="fw-bold mb-0">Featured title</h4>
-                                <p>Paragraph of text beneath the heading to explain the heading.</p>
+                                <h3 class="jua-regular mb-0">음식이름</h3>
+                                <p class="ibm-plex-sans-kr-regular">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor eos esse eum natus, reiciendis voluptas. Accusamus beatae deleniti earum nobis qui velit. Accusantium assumenda eveniet explicabo fugit officia? Explicabo, nobis?</p>
                             </div>
                         </div>
                     </div>
