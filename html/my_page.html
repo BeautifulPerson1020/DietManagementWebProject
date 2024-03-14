@@ -3,6 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--    폰트-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Playball&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Jua&family=Playball&display=swap" rel="stylesheet">
+    <!--    폰트-->
+    <link rel="stylesheet" href="../css/common_elements.css">
     <link rel="stylesheet" href="../css/my_page_css.css">
     <title>Your Web Page Title</title>
 </head>
@@ -12,44 +24,44 @@
     <div class="logo" onclick="redirectToMain()">
         <div class="playball-regular">Diet &nbsp;HARD</div>
     </div>
-    <div class="menu-item" onclick="redirectToMyPage()">마이페이지 </div>
-    <div class="menu-item" onclick="redirectToGoal()">목표관리</div>
-    <div class="menu-item" onclick="redirectToRecord()">기록 추가</div>
-    <div class="menu-item" onclick="redirectToFeedback()">피드백 </div>
-    <div class="menu-item" onclick="logout()">로그아웃</div>
+    <div class="ibm-plex-sans-kr-regular menu-item" onclick="redirectToMyPage()">마이페이지 </div>
+    <div class="ibm-plex-sans-kr-regular menu-item" onclick="redirectToGoal()">목표관리</div>
+    <div class="ibm-plex-sans-kr-regular menu-item" onclick="redirectToRecord()">기록 추가</div>
+    <div class="ibm-plex-sans-kr-regular menu-item" onclick="redirectToFeedback()">피드백 </div>
+    <div class="ibm-plex-sans-kr-regular menu-item" onclick="logout()">로그아웃</div>
 </div>
 
 <div class="profile-container">
     <div class="profile-box" id="myPage">
-        <h2>My Page</h2>
+        <h2 class="jua-regular">My Page</h2>
         <img src="../img/puppy.jpg" alt="User Photo" width="100" id="userPhoto"><br>
-        <button onclick="changePhoto()">Change Photo</button><br><br>
-        <p id="introductionTitle">Introduction</p>
-        <p id="introduction"> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <button onclick="editIntroduction()">Edit Introduction</button><br><br>
-        <p>SNS Links: <a href="#" id="facebookLink">Facebook</a>, <a href="#" id="twitterLink">Twitter</a>, <a href="#" id="instagramLink">Instagram</a></p>
-        <button onclick="editLinks()">Edit Links</button>
+        <button class="mint_button ibm-plex-sans-kr-regular" onclick="changePhoto()">Change Photo</button><br><br>
+        <p class="jua-regular" id="introductionTitle">Introduction</p>
+        <p class="ibm-plex-sans-kr-regular" id="introduction"> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <button class="mint_button ibm-plex-sans-kr-regular" onclick="editIntroduction()">Edit Introduction</button><br><br>
+        <p class="jua-regular">SNS Links: <a href="#" id="facebookLink">Facebook</a>, <a href="#" id="twitterLink">Twitter</a>, <a href="#" id="instagramLink">Instagram</a></p>
+        <button class="mint_button ibm-plex-sans-kr-regular" onclick="editLinks()">Edit Links</button>
     </div>
 
     <div class="profile-box">
-        <h2>User Information</h2>
-        <p>name: <span id="name"></span></p>
-        <p>id: <span id="user_id"></span></p>
-        <p>password: <span id="pw"></span></p>
-        <p>Age: <span id="age"></span></p>
-        <p>Height: <span id="height"></span></p>
-        <p>Weight: <span id="weight"></span></p>
-        <p>Goal Weight: <span id="goal_weight"></span></p>
-        <p>Email: <span id="email"></span></p>
-        <p>Phone: <span id="phone"></span></p>
-        <p>Gender: <span id="gender"></span></p>
-        <p>activity level: <span id="activity_level"></span></p>
-        <p>Weekly Exercise Time: <span id="weekly_exercise_time"></span></p>
+        <h2 class="jua-regular">User Information</h2>
+        <p class="jua-regular">name: <span id="name"></span></p>
+        <p class="jua-regular">id: <span id="user_id"></span></p>
+        <p class="jua-regular">password: <span id="pw"></span></p>
+        <p class="jua-regular">Age: <span id="age"></span></p>
+        <p class="jua-regular">Height: <span id="height"></span></p>
+        <p class="jua-regular">Weight: <span id="weight"></span></p>
+        <p class="jua-regular">Goal Weight: <span id="goal_weight"></span></p>
+        <p class="jua-regular">Email: <span id="email"></span></p>
+        <p class="jua-regular">Phone: <span id="phone"></span></p>
+        <p class="jua-regular">Gender: <span id="gender"></span></p>
+        <p class="jua-regular">activity level: <span id="activity_level"></span></p>
+        <p class="jua-regular">Weekly Exercise Time: <span id="weekly_exercise_time"></span></p>
 
 
         <div class="button-container">
-            <button onclick="withdrawal()" id="withdrawalBtn">Withdrawal</button>
-            <button onclick="updateInfo()">Update Information</button>
+            <button class="mint_button ibm-plex-sans-kr-regular" onclick="withdrawal()" id="withdrawalBtn">Withdrawal</button>
+            <button class="mint_button ibm-plex-sans-kr-regular" onclick="updateInfo()">Update Information</button>
         </div>
     </div>
 </div>
