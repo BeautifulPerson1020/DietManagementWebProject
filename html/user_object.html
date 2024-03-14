@@ -4,113 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Object Control</title>
-<!--    <link rel="stylesheet" href="/css/object_style.css">-->
-    <script defer src="../js/object_option.js"></script>
-    <style>
-        .playball-regular {
-            font-family: "Playball", cursive;
-            font-weight: 400;
-            font-style: normal;
-        }
-
-        .menu {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 100px;
-            padding: 0 20px;
-            background: #FFFFFF;
-            box-shadow: 0 4px 18.1px 2px rgba(0, 0, 0, 0.25);
-            overflow: hidden;
-            font-size: 2vw;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        .menu-item {
-            cursor: pointer;
-            font-size: 2vw;
-            margin: 0 10px;
-        }
-        .menu-item:hover {
-            background-color: #f5f5f5;
-            transition: 0.3s;
-            font-weight: bold;
-        }
-        /* object css */
-        #gpt {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            font-size: 1.5em;
-        }
-        #gpt h2 {
-            font-size: 2em;
-            font-weight: bold;
-            margin-top: 20px;
-        }
-
-        .goal-box {
-            border: 2px solid black;
-            padding: 20px;
-            margin-top: 20px;
-            font-weight: bold;
-            width: calc(100% - 40px); /* 전체 너비에서 padding 제외 */
-            overflow-y: auto; /* 필요한 경우 스크롤 표시 */
-            box-sizing: border-box; /* padding 포함하여 너비 계산 */
-        }
-
-        .goal-box p {
-            margin: 0;
-        }
-
-        #current-goal p {
-            text-align: center;
-            font-size: 1.1em;
-        }
-        .past-goals-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
-
-        .past-goal-box {
-            width: calc(100% - 40px);
-            padding: 20px;
-            margin: 10px 0;
-            border: 2px solid black;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            font-weight: bold;
-            box-sizing: border-box; /* padding 포함하여 너비 계산 */
-        }
-
-        .past-goal-box:hover {
-            background-color: #e0e0e0;
-        }
-
-        @media screen and (max-width: 600px) {
-            .menu-item {
-                display: flex;
-                font-size: 5vw; /* 모바일에서 폰트 크기 조정 */
-            }
-            .goal-box {
-                display: flex;
-                padding: 10px; /* 모바일에서 padding 조정 */
-                width: calc(100% - 20px); /* 모바일에서 전체 너비에서 padding 제외 */
-            }
-            .past-goal-box {
-                display: flex;
-                width: calc(100% - 20px); /* 모바일에서 전체 너비에서 padding 제외 */
-            }
-        }
-
-    </style>
+    <link rel="stylesheet" href="/css/toolbar_style.css">
+    <link rel="stylesheet" href="/css/object_add_modal.css">
+    <link rel="stylesheet" href="/css/object_style.css">
+    <script defer rel="javascript" src="/js/object_option.js"></script>
+    <script defer rel="javascript" src="/js/object_add_modal.js"></script>
     <link rel="stylesheet" href="../css/feedback_style.css">
 </head>
 <body>
@@ -133,9 +31,24 @@
             <p id="current-goal-content">
 
             </p>
-            <br>
+            <div class="object-modal" id="modalOn">
+                <div class="object-modal-body">
+                    <h2>목표 추가!!</h2>
+                    <div class="modal-content">
+                        <input class="inputObject" id="dDay" type="text" placeholder="목적 기간">
+                        <input class="inputObject" id="goal" type="text" placeholder="사용 목적">
+                        <input class="inputObject" id="targetKcal" type="text" placeholder="목표 칼로리">
+                        <input class="inputObject" id="usedMoney" type="text" placeholder="목표 자금">
+<!--                        <strong>기간 : 2024.02.01 - 2024.02.28</strong>-->
+<!--                        <br>목적 : 학기 준비용 자금 아끼기-->
+<!--                        <br>목표 칼로리: 180,000kcal-->
+<!--                        <br>자금 : 20만원-->
+                    </div>
+                    <button class="exit-object-modal">추가하기</button>
+                </div>
+            </div>
+            <button class="btn-open-modal">현재 목표 추가</button>
         </div>
-        <button class="add-goal-button" onclick="redirectToGoalAdd()">현재 목표 추가</button>
     </div>
 
     <!-- 과거 목표들 표시 -->
