@@ -1,11 +1,18 @@
+/*검색 및 저장*/
 const searchInput = document.getElementById("searchInput");
 const searchBnt = document.getElementById("searchBnt");
 const searchResult = document.getElementById("searchResult");
 const eatTime = document.getElementById("eatTime");
 const foodAmount = document.getElementById("foodAmount");
 const foodCost = document.getElementById("foodCost");
-const searchTable = document.getElementById("searchTable");
-
+/*유저가 직접 입력하는 모달*/
+const modalPopUp = document.getElementById("modalPopUp");
+const foodName = document.getElementById("foodName");
+const foodCalories = document.getElementById("foodCalories");
+const foodSugars = document.getElementById("foodSugars");
+const saveUserFood = document.getElementById("saveUserFood");
+const cancleCreate = document.getElementById("cancleCreate");
+/*검색 결과 페이지 전환*/
 const pagination = document.getElementById('pagination');   //페이지 전환용 버튼 생성 필드
 const searchBtn = document.getElementById("searchBtn");
 const recordSaveBtn = document.getElementById("recordSaveBtn");
@@ -22,7 +29,7 @@ import food from "../json/../json/food.json" assert{ type: "json"};
 
 let resultFood = food;
 
-
+/*검색결과 페이징*/
 function renderTable(page) {
     const start = (page - 1) * pageSize;
     const end = start + pageSize;
@@ -78,8 +85,9 @@ function renderPagination() {
 
 renderTable(currentPage);
 renderPagination();
+/*검색 결과 페이징 끝*/
 
-
+/*검색 및 저장*/
 searchBtn.addEventListener('click', searchFood);
 recordSaveBtn.addEventListener('click', recordFood);
 recordCancleBtn.addEventListener('click', recordCancle);
@@ -94,6 +102,8 @@ function recordCancle(){
 }
 
 /*console.log(food); 이거 왜 food가 정의되지 않았다고 나오지 (질문해라)*/
+
+/*검색 및 저장*/
 function searchFood(){
     if(!searchInput.value){
         alert("음식이름을 입력하세요");
@@ -109,7 +119,8 @@ function searchFood(){
         }
         else {
             if(confirm("검색결과가 없습니다. 직접 입력하시겠습니까?")){
-                location.href="../html/record_user_create.html";
+                modalPopUp.classList.add('on');
+                /*location.href="../html/record_user_create.html";*/
             }
         }
     }
@@ -129,15 +140,60 @@ function recordFood(){
         alert("음식을 선택하세요")
     }
     else {
-        if(confirm("저장하시겠습니까?")){
+        if(confirm("식단을 저장하시겠습니까?")){
             /*저장 코드*/
+            alert("저장되었습니다");
             console.log("저장");
             location.href="../html/record_main.html";
         }
     }
 }
-
 /*const selectFood = (newHtml) => { /!*따로 만들고 넣으면 클릭 안했는데 실행됨 (질문하자)*!/
     /!*저장함수*!/
     console.log(newHtml.innerText);
 }*/
+/*검색 및 저장 끝*/
+
+/*모달 관련*/
+saveUserFood.addEventListener('click', createFood);
+cancleCreate.addEventListener('click', createCancle);
+
+let userCreatedFood = {
+    "user_food_id" : 1,
+    "user_food_name" : "유저음식",
+    "user_food_calories" : 10.2,
+    "user_food_sugars" : 1.2
+}
+
+function createFood(){
+    if(!foodName.value){
+        alert("음식이름을 입력하세요");
+    }
+    else if(!foodCalories.value){
+        alert("칼로리(kcal)를 입력하세요");
+    }
+    else if(!foodSugars.value){
+        alert("당류(g)를 입력하세요");
+    }
+    else {
+        if(confirm("음식을 저장하시겠습니까?")){
+            /*저장 코드*/
+            userCreatedFood.user_food_id = 1;
+            userCreatedFood.user_food_name = foodName.value;
+            userCreatedFood.user_food_calories = foodCalories.value;
+            userCreatedFood.user_food_sugars = foodSugars.value;
+            searchInput.value = userCreatedFood.user_food_name;
+            selectedFood=userCreatedFood;
+            console.log(selectedFood)
+            alert("저장되었습니다");
+            modalPopUp.classList.remove('on');
+            /*location.href="../html/record_add_search.html";*/
+        }
+    }
+}
+
+function createCancle(){
+    modalPopUp.classList.remove('on');
+    /*location.href="../html/record_add_search.html";*/
+}
+/*모달 끝*/
