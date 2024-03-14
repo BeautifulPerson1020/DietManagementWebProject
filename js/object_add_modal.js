@@ -24,6 +24,6 @@ exModal.addEventListener("click", () => {
     goalContent.innerText = dDay.value+'\n';
     goalContent.innerText += goal.value+'\n';
     goalContent.innerText += targetKcal.value+'\n';
-    goalContent.innerText += usedMoney.value;
+    goalContent.innerText += usedMoney.value+'\n';
     isHaveContent = false;
 })

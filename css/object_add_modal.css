@@ -39,6 +39,11 @@
     transform: translateY(-50%);
 }
 
+.btn-open-modal {
+    height: 4vh;
+    width: 100%;
+    margin-top: 20px;
+}
 .inputObject {
     width: 100%;
     height: 3vh;
