@@ -17,6 +17,8 @@ const pagination = document.getElementById('pagination');   //페이지 전환�
 const searchBtn = document.getElementById("searchBtn");
 const recordSaveBtn = document.getElementById("recordSaveBtn");
 const recordCancleBtn = document.getElementById("recordCancleBtn");
+const prevButton = document.getElementById('prevButton');
+const nextButton = document.getElementById('nextButton');
 
 let selectedFood = null;
 const pageSize = 10; // Number of items per page
@@ -58,9 +60,6 @@ function renderPagination() {
 
     const totalPages = Math.ceil(resultFood.length / pageSize);
 
-    const prevButton = document.createElement('button');
-    prevButton.className = "btn px-1 ms-1"
-    prevButton.textContent = 'Prev';
     prevButton.addEventListener('click', () => {
         if (currentPage > 1) {
             currentPage--;
@@ -69,9 +68,6 @@ function renderPagination() {
     });
     pagination.appendChild(prevButton);
 
-    const nextButton = document.createElement('button');
-    nextButton.className = "btn px-1 ms-1"
-    nextButton.textContent = 'Next';
     nextButton.addEventListener('click', () => {
         if (currentPage < totalPages) {
             currentPage++;
@@ -103,7 +99,6 @@ function recordCancle(){
 
 /*console.log(food); 이거 왜 food가 정의되지 않았다고 나오지 (질문해라)*/
 
-/*검색 및 저장*/
 function searchFood(){
     if(!searchInput.value){
         alert("음식이름을 입력하세요");

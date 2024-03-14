@@ -32,3 +32,12 @@
     box-shadow:0 2px 3px 0 rgba(34,36,38,0.15);
     transform:translateY(-50%);
 }
+
+input::placeholder {
+    /*font-family: "Jua", sans-serif;
+    font-weight: 400;
+    font-style: normal;*/
+    /*font-family: "IBM Plex Sans KR", sans-serif;
+    font-weight: 400;
+    font-style: normal;*/
+}
