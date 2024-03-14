@@ -120,7 +120,7 @@ function sendVerificationCode() {
         body: JSON.stringify({ name: name, phoneNumber: phoneNumber })
     })
         .then(response => response.json())
-        .then(data => {
+        .then(()  => {
             alert('Verification code sent successfully!');
             // 여기에서 사용자가 받은 코드를 입력하는 입력란을 보여줄 수 있습니다.
             showVerificationInputs();
